@@ -2,11 +2,43 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+      <router-link to="/bonjour">Bonjour</router-link> |
+      <router-link to="/testing">Testing</router-link>
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+
+  // const navArr = [
+  //   {
+  //     name: 'Home',
+  //     route: '/'
+  //   },
+  //   {
+  //     name: 'About',
+  //     route: '/about'
+  //   }
+  // ];
+
+  // const makeNav = arr => {
+  //   let nav = document.getElementById('nav');
+
+  //   arr.forEach(element => {
+  //     const link = document.createElement('router-link');
+  //     link.setAttribute('to', element.route);
+  //     link.innerHTML = element.name;
+  //     nav.appendChild(link);
+  //   });
+
+
+  // };
+
+  // makeNav(navArr);
+
+</script>
 
 <style lang="scss">
 #app {
