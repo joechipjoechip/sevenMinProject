@@ -1,10 +1,12 @@
 <template>
   <div id="app">
     <div id="nav">
+      <p>ici c'est App.vue avec le div#app à la bien</p>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/bonjour">Bonjour</router-link> |
-      <router-link to="/testing">Testing</router-link>
+      <router-link to="/testing">Testing</router-link> |
+      <router-link to="/go">Go</router-link>
     </div>
     <router-view/>
   </div>

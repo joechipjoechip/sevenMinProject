@@ -30,6 +30,11 @@ export default new Router({
       path: '/testing',
       name: 'testing',
       component: () => import('./views/Testing.vue'),
+    },
+    {
+      path: '/go',
+      name: 'go',
+      component: () => import('./views/Go.vue'),
     }
   ]
 })
