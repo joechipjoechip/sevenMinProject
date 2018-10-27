@@ -27,11 +27,6 @@ export default new Router({
       component: () => import('./views/Bonjour.vue'),
     },
     {
-      path: '/testing',
-      name: 'testing',
-      component: () => import('./views/Testing.vue'),
-    },
-    {
       path: '/go',
       name: 'go',
       component: () => import('./views/Go.vue'),

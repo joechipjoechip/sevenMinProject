@@ -1,7 +1,8 @@
 <template>
   <div class="ComponentTest">
-    <p>ComponentTest</p>
+    <p v-if="this.$parent.laMethode()">ComponentTest</p>
     <h1>{{ msg }}</h1>
+    <h1 v-if="methodeLocale()">ce message signifie que la methode de ce component est bien accessible</h1>
     
   </div>
 </template>
@@ -10,7 +11,14 @@
 export default {
   name: 'ComponentTest',
   props: {
-    msg: String
+    msg: String,
+    laprop: String
+  },
+  methods : {
+    methodeLocale: function (){
+      console.log('oui la methode locale fonctionne');
+      return true;
+    }
   }
 }
 </script>
