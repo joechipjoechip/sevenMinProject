@@ -1,6 +1,6 @@
 <template>
   <div class="ComponentTest">
-    <p v-if="this.$parent.laMethode()">ComponentTest</p>
+    <!-- <p v-if="this.$parent.laMethode()">ComponentTest</p> -->
     <h1>{{ msg }}</h1>
     <h1 v-if="methodeLocale()">ce message signifie que la methode de ce component est bien accessible</h1>
     
@@ -16,7 +16,7 @@ export default {
   },
   methods : {
     methodeLocale: function (){
-      console.log('oui la methode locale fonctionne');
+      console.log('oui la methode locale fonctionne (ComponentTest.vue)');
       return true;
     }
   }

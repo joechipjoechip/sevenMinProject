@@ -24,10 +24,12 @@ export default {
 
 <style>
 .bonjour {
+    position: relative;
     width: 80%;
     display: block;
     margin: 0 auto;
     padding: 10px;
+    top: 0;
 
     border: solid 1px orange;
 }

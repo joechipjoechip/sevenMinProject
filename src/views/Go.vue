@@ -10,30 +10,29 @@
 </template>
 
 <script>
-import MetaMethods from '@/MetaMethods.js'
-import MetaData from '@/MetaData.js'
+// import MetaMethods from '@/MetaMethods.js'
+// import MetaData from '@/MetaData.js'
 
 import ComponentGo from '@/components/ComponentGo.vue'
 import ComponentTest from '@/components/ComponentTest.vue'
-
-console.log(MetaData.laData);
 
 export default {
   name: 'Go',
   components: {
     ComponentGo,
     ComponentTest
-  },
-  methods : MetaMethods
+  }
 }
 </script>
 
 <style lang="scss">
 .go {
+    position: relative;
     width: 60%;
     display: block;
     margin: 0 auto;
     padding: 10px;
+    top: 0;
 
     border: solid 1px orange;
 }
