@@ -6,7 +6,7 @@
     <router-link to="/about">About</router-link>
 
 
-    <ComponentA msg="salut, moi c'est le component A"/>
+    <ComponentA class="component" msg="salut, moi c'est le component A"/>
 
   </div>
 </template>

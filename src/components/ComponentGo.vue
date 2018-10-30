@@ -11,10 +11,7 @@
 
         <h1 class="lettersContainer" 
             ref="monh1" 
-            data-animparams='{
-              "duration": 0.6,
-              "stagger": 0.02
-              }'>
+            data-animparams='{"duration": 0.8, "stagger": 0.025}'>
             {{ msg }}
         </h1>
 
@@ -38,11 +35,6 @@ export default {
   },
   methods: {
     lettersRoll
-  },
-  // Hooks : (lifecycle of the component)
-  mounted: function() {
-    // console.log('ici en live du mounted de ComponentGo.vue--> ', this.$refs);
-    // donc on a accès aux refs à partir d'ici
   }
 }
 </script>

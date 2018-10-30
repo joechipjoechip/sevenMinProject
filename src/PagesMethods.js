@@ -2,7 +2,8 @@ import { TimelineLite } from "gsap/TweenMax";
 
 const options = {
     routerTransitionDuration: 1000,
-    ratioDeltaEnterLeave: 0.85
+    ratioDeltaEnterLeave: 0.85,
+    staggerComponents: 0.2
 };
 
 const routerTransitionOptions = () => {
@@ -16,13 +17,24 @@ const pageEnter = (el) => {
     // console.log('hey, ici le pageEnter', el);
 
     const tl = new TimelineLite();
-    tl.from(el,
-        options.routerTransitionDuration / 1000,
-        {
-            autoAlpha: 0,
-            scale: 20,
-            force3D: false
-        });
+    tl.from(
+                el,
+                options.routerTransitionDuration / 1000,
+                {
+                    autoAlpha: 0,
+                    x: 500,
+                    force3D: false
+                }
+            )
+            .staggerFrom(
+                el.querySelectorAll('.component') || el.querySelectorAll('div'),
+                (options.routerTransitionDuration / 1000) * 0.5,
+                {
+                    y: -250,
+                    autoAlpha: 0
+                },
+                options.staggerComponents
+            );
 };
 
 const pageLeave = (el) => {
