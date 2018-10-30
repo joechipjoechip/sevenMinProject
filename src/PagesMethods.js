@@ -1,34 +1,47 @@
 import { TimelineLite } from "gsap/TweenMax";
 
-const transitionOptions = {
-    deltaEnterLeave: 2
+const options = {
+    routerTransitionDuration: 1000,
+    ratioDeltaEnterLeave: 0.85
 };
 
-const pageEnter = function(el) {
-    console.log('hey, ici le pageEnter', el);
+const routerTransitionOptions = () => {
+    return  {
+        enter: options.routerTransitionDuration, 
+        leave: options.routerTransitionDuration * options.ratioDeltaEnterLeave,
+    };
+};
+
+const pageEnter = (el) => {
+    // console.log('hey, ici le pageEnter', el);
 
     const tl = new TimelineLite();
     tl.from(el,
-        transitionOptions.deltaEnterLeave,
+        options.routerTransitionDuration / 1000,
         {
-            x: -200,
-            autoAlpha: 0
+            autoAlpha: 0,
+            scale: 20,
+            force3D: false
         });
 };
 
-const pageLeave = function(el) {
-    console.log('hey, ici le pageLeave', el);
+const pageLeave = (el) => {
+    // console.log('hey, ici le pageLeave', el);
 
     const tl = new TimelineLite();
     tl.to(el,
-        2,
+        (options.routerTransitionDuration / 1000) * options.ratioDeltaEnterLeave,
         {
-            x: 200,
-            autoAlpha: 0
+            autoAlpha: 0,
+            scale: 0.5,
+            rotation: -25,
+            force3D: false
+
         });
 };
 
 export {
     pageEnter,
-    pageLeave
+    pageLeave,
+    routerTransitionOptions
  };

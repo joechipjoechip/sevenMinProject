@@ -15,9 +15,11 @@
       v-on:leave="leave"
       v-bind:css="false"
     -->
-    <transition appear name="transitionName" mode="out-in"
-      v-on:enter="pageEnter"
-      v-on:leave="pageLeave">
+    <transition appear name="transitionRouter" mode="out-in"
+      v-on:enter="pageEnter" 
+      v-on:leave="pageLeave" 
+      :duration="routerTransitionOptionsComputed"
+    >
       <router-view/>
     </transition>
 
@@ -26,12 +28,17 @@
 
 <script>
 
-  import { pageEnter, pageLeave } from '@/PagesMethods.js';
+  import { pageEnter, pageLeave, routerTransitionOptions } from '@/PagesMethods.js';
 
   export default {
     methods: {
       pageEnter, 
       pageLeave
+    },
+    computed: {
+      routerTransitionOptionsComputed: () => {
+        return routerTransitionOptions();
+      }
     }
   }
 </script>
@@ -59,6 +66,7 @@
 .oneLetter {
   display: inline-block;
 }
+
 
 
 </style>

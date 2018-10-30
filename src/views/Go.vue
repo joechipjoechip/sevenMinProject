@@ -24,20 +24,20 @@ export default {
 </script>
 
 <style lang="scss">
-.go {
-    position: relative;
-    width: 60%;
-    display: block;
-    margin: 0 auto;
-    padding: 10px;
-    top: 0;
+  .go {
+      position: relative;
+      width: 60%;
+      display: block;
+      margin: 0 auto;
+      padding: 10px;
+      top: 0;
 
-    border: solid 1px orange;
-}
-#leComponent {
-    box-shadow: 5px 5px 5px black;
-    width: 50%;
-    margin: 0 auto;
-}
+      border: solid 1px orange;
+  }
+  #leComponent {
+      box-shadow: 5px 5px 5px black;
+      width: 50%;
+      margin: 0 auto;
+  }
 </style>
 
