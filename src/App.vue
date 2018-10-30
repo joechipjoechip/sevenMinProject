@@ -9,20 +9,15 @@
       <router-link to="/go">Go</router-link>
     </div>
 
-    <!-- <transition 
-      name="fade" 
-      appear 
+    <!-- 
       v-on:before-enter="beforeEnter"
       v-on:enter="enter"
       v-on:leave="leave"
       v-bind:css="false"
-    > -->
-    <transition 
-      name="fade" 
-      appear 
+    -->
+    <transition appear name="transitionName" mode="out-in"
       v-on:enter="pageEnter"
-      v-on:leave="pageLeave"
-    >
+      v-on:leave="pageLeave">
       <router-view/>
     </transition>
 
@@ -32,11 +27,11 @@
 <script>
 
   import { pageEnter, pageLeave } from '@/PagesMethods.js';
-  // import MetaData from '@/MetaData.js'
 
   export default {
     methods: {
-      pageEnter, pageLeave
+      pageEnter, 
+      pageLeave
     }
   }
 </script>
@@ -64,32 +59,6 @@
 .oneLetter {
   display: inline-block;
 }
-
-// // Transition options
-// .fade-enter-active, 
-// .fade-leave-active {
-//   transition: all 2s;
-// }
-
-// // Schema : v-enter --> v-enter-to
-// // opacity :   0  ----->  1
-
-// // Etat au début de l'anim
-// // (état de base du enter = état d'arrivée du leave)
-
-// .fade-enter, 
-// .fade-leave-to {
-//   opacity: 0;
-//   transform: translate3D(0, -150px, 0);
-// }
-
-// // Etat à la fin de l'anim
-// // (état d'arrivée du enter = état de base du leave)
-// .fade-enter-to, 
-// .fade-leave {
-//   transform: translate3D(0, 0, 0);
-// }
-
 
 
 </style>

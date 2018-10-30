@@ -10,7 +10,6 @@ const lettersRoll = function(el) {
 
     // on pecho les animsparams pour quand on va lancer l'anim
     const mesOptions = JSON.parse(element.dataset.animparams);
-    console.log(mesOptions);
 
     // on stock le texte (.innerHTML vien de l'api de base (mdn))
     const texte = element.innerHTML;
@@ -18,20 +17,20 @@ const lettersRoll = function(el) {
     // on découpe le texte pour mettre chaque lettre isolée dans un array commun
     const texteArr = texte.split('');
 
-    // ici on enveloppe chaque lettre d'un span.oneLetter
+    // on enveloppe chaque lettre d'un span.oneLetter
     element.innerHTML = texteArr.map(lettre => {
         let lettreOk = lettre;
         if (lettreOk === ' ') {
-        // ici on remplace simplement un espace par un &nbsp; (espace insécable)
+        // on remplace simplement un espace par un &nbsp; (espace insécable)
         lettreOk = '&nbsp;';
         }
         // on retourne la lettre enveloppée
         return `<span class="oneLetter">${lettreOk}</span>`;
     })
-    // ici on .join() le tableau pour retrouver une string
+    // on .join() le tableau pour retrouver une string
     .join('');
 
-    // ici on fais une grosse séléction de chaque élément contennant une lettre
+    // ici on fait une grosse séléction de tous les éléments contennant une lettre
     // ( donc nos 'enveloppes' )
     // Array.from() permet de transformer une NodeList (ce que nous donne un querySelectorAll) en Array bien propre
     const letters = Array.from(element.querySelectorAll('.oneLetter'));
@@ -40,6 +39,7 @@ const lettersRoll = function(el) {
     const tl = new TimelineLite();
     
     // et ici on lance l'anim sur l'ensemble des lettres isolées
+    // https://greensock.com/docs/TimelineMax/staggerFrom
     tl.staggerFrom(
         // array contenant toute les lettres isolées
         letters, 
