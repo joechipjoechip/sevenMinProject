@@ -1,6 +1,6 @@
 <template>
   <div class="ComponentTest">
-    
+
     <h1>{{ msg }}</h1>
     <h1 v-if="methodeLocale()">ce message signifie que la methode de ce component est bien accessible</h1>
     
@@ -24,7 +24,7 @@ export default {
 
 
 <style scoped lang="scss">
-.ComponentTest {
-    border: solid 15px blue;
-}
+  .ComponentTest {
+      border: solid 15px blue;
+  }
 </style>
