@@ -3,9 +3,9 @@
     <p>ici c'est views/Go.vue, donc un peu le layout quoi</p>
     <h1># GO</h1>
 
-    <ComponentGo class="component" msg="salut, moi c'est le component GO, donc un truc spécifique indépendant (un component) qui a été 'invoqué' ici, dans le views/Go.vue"/>
-    <ComponentTest class="component" msg="salut, moi c'est le component Test, donc un truc spécifique indépendant (un component) qui a été chargé ici, dans le views/Go.vue"/>
-
+    <ComponentGo class="component" />
+    <!-- <ComponentTest class="component" msg="salut, moi c'est le component Test, donc un truc spécifique indépendant (un component) qui a été chargé ici, dans le views/Go.vue"/> -->
+    <!-- <ComponentTyper msg="Bonjour bonjour, " /> -->
   </div>
 </template>
 
@@ -13,6 +13,8 @@
 
 import ComponentGo from '@/components/ComponentGo.vue'
 import ComponentTest from '@/components/ComponentTest.vue'
+
+// console.log('le lorem : ', this.$store.state.lorem);
 
 export default {
   name: 'Go',
@@ -33,11 +35,6 @@ export default {
       top: 0;
 
       border: solid 1px orange;
-  }
-  #leComponent {
-      box-shadow: 5px 5px 5px black;
-      width: 50%;
-      margin: 0 auto;
   }
 </style>
 

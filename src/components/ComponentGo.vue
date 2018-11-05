@@ -12,7 +12,7 @@
         <h1 class="lettersContainer" 
             ref="monh1" 
             data-animparams='{"duration": 0.8, "stagger": 0.025}'>
-            {{ msg }}
+            {{ monLorem }}
         </h1>
 
       </transition>
@@ -30,8 +30,10 @@ import { lettersRoll } from '@/ComponentsMethods.js';
 
 export default {
   name: 'ComponentGo',
-  props: {
-    msg: String
+  data () {
+    return {
+      monLorem: this.$store.state.lorem
+    }
   },
   methods: {
     lettersRoll
