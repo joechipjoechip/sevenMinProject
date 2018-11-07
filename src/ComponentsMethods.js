@@ -61,6 +61,16 @@ const lettersRoll = function(el) {
     // "et voilà"
 };
 
+const goNext = function(destination, delay) {
+
+    setTimeout(function() {
+        window.location.pathname = `/${destination}`;
+    }, delay * 1000);
+
+};
+
+
 export { 
-    lettersRoll
+    lettersRoll,
+    goNext
  };

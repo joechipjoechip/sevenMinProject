@@ -28,9 +28,9 @@ export default {
 <style lang="scss">
   .go {
       position: relative;
-      width: 60%;
+      width: 95%;
       display: block;
-      margin: 0 auto;
+      margin: 20px auto;
       padding: 10px;
       top: 0;
 

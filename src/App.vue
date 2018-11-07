@@ -1,13 +1,13 @@
 <template>
   <div id="app">
 
-    <div id="nav">
+    <!-- <div id="nav">
       <p>ici c'est App.vue avec le div#app à la bien</p>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/bonjour">Bonjour</router-link> |
       <router-link to="/go">Go</router-link>
-    </div>
+    </div> -->
 
     <transition appear name="transitionRouter" mode="out-in"
       v-on:enter="pageEnter" 
@@ -39,13 +39,25 @@
 
 
 <style lang="scss">
+
+@import url('https://fonts.googleapis.com/css?family=Abhaya+Libre:400,800');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  // font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Abhaya Libre', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: black;
+  font-size: 25px;
 }
+
 #nav {
   padding: 30px;
   a {
@@ -63,24 +75,6 @@
 
 .router-link-exact-active {
   display: inline-block;
-  animation: floating 10s infinite alternate;
 }
-
-@keyFrames floating {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-
-  50% {
-    transform: translateY(-4px) rotate(-5deg);
-  }
-
-  100% {
-    transform: translateY(-7px) rotate(15deg);
-  }
-
-}
-
-
 
 </style>

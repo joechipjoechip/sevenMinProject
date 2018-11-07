@@ -7,9 +7,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    
-      lorem: MetaData.lorem
-    
+      metaData: MetaData
   },
   mutations: {
 
