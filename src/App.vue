@@ -8,7 +8,7 @@
     <div id="nav">
       <p>ici c'est App.vue avec le div#app à la bien</p>
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
+      <router-link :to="{'name': 'about'}">About</router-link> |
       <router-link to="/bonjour">Bonjour</router-link> |
       <router-link to="/go">Go</router-link>
     </div>
@@ -16,9 +16,9 @@
     <transition 
 		appear 
 		name="transitionRouter" 
-		mode="out-in"
-      	v-on:enter="pageEnter" 
-      	v-on:leave="pageLeave">
+		mode="out-in" 
+		v-on:enter="pageEnter" 
+		v-on:leave="pageLeave">
 
 		<router-view/>
 
@@ -33,19 +33,53 @@
 
 <script>
 
-  	import { pageEnter, pageLeave, pageOptions } from '@/PagesMethods.js';
+	import { pageEnter, pageLeave, changeBg, pageOptions } from '@/PagesMethods.js';
+	import layoutMethods from '@/LayoutMethods.js';
+
+	import Vue from 'vue';
+	export const Events = new Vue();
+
+
 
 	export default {
 
+		components: {
+			Events
+		},
+
 		methods: {
 			pageEnter, 
-			pageLeave
+			pageLeave,
+			changeBg(color) { 
+				// console.log(layoutMethods);
+				layoutMethods.changeBg({color, el: this.$el});
+
+				console.log('hey', this.$route);
+			}
 		},
 
 		data: function () {
 			return {
 				transitionDuration: pageOptions.routerTransitionDuration
 			}
+		},
+
+		watch: {
+
+			'$route' (to, from) {
+				console.log('- - - - - - - hey le watch', to);
+				console.log('- - - - - - - hey le watch', from);
+			}
+
+		},
+
+		mounted() {
+			console.log('ici le mounted');
+			Events.$on("change_bg", this.changeBg);
+		},
+
+		beforeDestroy() {
+			Events.$off("change_bg", this.changeBg);
 		}
 
 	}
@@ -57,48 +91,49 @@
 
 <style lang="scss">
 
-@import url('https://fonts.googleapis.com/css?family=Abhaya+Libre:400,800');
+	@import url('https://fonts.googleapis.com/css?family=Abhaya+Libre:400,800');
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: rebeccapurple;
-}
-
-#app {
-  // font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  font-family: 'Abhaya Libre', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: black;
-  font-size: 25px;
-}
-
-#nav {
-  padding: 30px;
-
-	p {
-		font-size: 12px;	
+	body {
+		margin: 0;
+		padding: 0;
 	}
 
-	a {
+	#app {
+		// font-family: 'Avenir', Helvetica, Arial, sans-serif;
+		font-family: 'Abhaya Libre', Helvetica, Arial, sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-align: center;
+		color: black;
+		font-size: 25px;
 
-		font-weight: bold;
-		color: #2c3e50;
+		transition: background-color .7s;
+	}
 
-		&.router-link-exact-active {
+	#nav {
+		padding: 30px;
 
-			color: #42b983;
+		p {
+			font-size: 12px;	
+		}
+
+		a {
+
+			font-weight: bold;
+			color: #2c3e50;
+
+			&.router-link-exact-active {
+
+				color: #42b983;
+
+			}
 
 		}
 
 	}
 
-}
-
-.router-link-exact-active {
-  display: inline-block;
-}
+	.router-link-exact-active {
+		display: inline-block;
+	}
 
 </style>

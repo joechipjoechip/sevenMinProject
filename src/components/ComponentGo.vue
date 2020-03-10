@@ -35,10 +35,12 @@
 
 	export default {
 		name: 'ComponentGo',
+
 		components: {
 			ComponentA,
 			ComponentLettersRoll
 		},
+		
 		methods: {
 
 			lettersRoll,
@@ -57,8 +59,8 @@
 
 		data () {
 			return {
-			monLorem: this.$store.state.metaData.lorem,
-			title: 'Hi, i\'m the title'
+				monLorem: this.$store.state.metaData.lorem,
+				title: 'Hi, i\'m the title'
 			}
 		}
 	}
@@ -70,7 +72,9 @@
 <!-- ° ° ° ° ° ° ° ° ° S T Y L E ° ° ° ° ° ° ° ° ° -->
 
 <style scoped lang="scss">
-  .ComponentGo {
-      border: solid 15px yellow;
-  }
+
+	.ComponentGo {
+		border: solid 15px yellow;
+	}
+
 </style>

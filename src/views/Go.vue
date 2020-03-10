@@ -26,13 +26,13 @@
 
   // console.log('le lorem : ', this.$store.state.lorem);
 
-  export default {
-    name: 'Go',
-    components: {
-      ComponentGo,
-      ComponentTest
-    }
-  }
+	export default {
+		name: 'Go',
+		components: {
+			ComponentGo,
+			ComponentTest
+		}
+	}
 
 </script>
 
@@ -41,16 +41,20 @@
 
 <style lang="scss">
 
-  .go {
-      position: relative;
-      width: 95%;
-      display: block;
-      margin: 20px auto;
-      padding: 10px;
-      top: 0;
+  	body {
+		background-color: orange;
+	}
 
-      border: solid 1px orange;
-  }
+  	.go {
+		position: relative;
+		width: 95%;
+		display: block;
+		margin: 20px auto;
+		padding: 10px;
+		top: 0;
+
+		border: solid 1px orange;
+	}
 
 </style>
 

@@ -22,13 +22,21 @@
 
 <script>
 
-	import ComponentA from '@/components/ComponentA.vue'
+	import ComponentA from '@/components/ComponentA.vue';
+	import { Events } from '@/App.vue';
 
 	export default {
+
 		name: 'bonjour',
+
 		components: {
 			ComponentA
+		},
+
+		mounted() {
+			Events.$emit('change_bg', 'orange');
 		}
+		
 	}
 
 </script>
@@ -36,7 +44,11 @@
 <!-- ° ° ° ° ° ° ° ° ° S T Y L E ° ° ° ° ° ° ° ° ° -->
 <!-- ° ° ° ° ° ° ° ° ° S T Y L E ° ° ° ° ° ° ° ° ° -->
 
-<style>
+<style lang="scss">
+
+	body {
+		background-color: greenyellow;
+	}
 
 	.bonjour {
 		position: relative;

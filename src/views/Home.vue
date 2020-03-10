@@ -16,13 +16,23 @@
 <!-- ° ° ° ° ° ° ° ° ° L O G I C ° ° ° ° ° ° ° ° ° -->
 <!-- ° ° ° ° ° ° ° ° ° L O G I C ° ° ° ° ° ° ° ° ° -->
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
-export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
-}
+	// @ is an alias to /src
+	import HelloWorld from '@/components/HelloWorld.vue';
+	import { Events } from '@/App.vue';
+
+	export default {
+
+		name: 'home',
+
+		components: {
+			HelloWorld
+		},
+
+		mounted() {
+			Events.$emit('change_bg', 'red');
+		}
+
+	}
+
 </script>

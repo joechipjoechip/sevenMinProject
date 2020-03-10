@@ -6,13 +6,16 @@ import MetaData from '@/MetaData.js';
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
-      metaData: MetaData
-  },
-  mutations: {
+	state: {
+		metaData: MetaData
+	},
 
-  },
-  actions: {
+	mutations: {
 
-  }
-})
+	},
+
+	actions: {
+
+	}
+
+});
