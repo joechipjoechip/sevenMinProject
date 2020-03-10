@@ -42,8 +42,10 @@
 			pageLeave
 		},
 
-		data: {
-			transitionDuration: pageOptions.routerTransitionDuration
+		data: function () {
+			return {
+				transitionDuration: pageOptions.routerTransitionDuration
+			}
 		}
 
 	}
@@ -60,7 +62,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: white;
+  background-color: rebeccapurple;
 }
 
 #app {

@@ -6,13 +6,6 @@ const pageOptions = {
     staggerComponents: 0.2
 };
 
-// const routerTransitionOptions = () => {
-//     return  {
-//         enter: pageOptions.routerTransitionDuration, 
-//         leave: pageOptions.routerTransitionDuration * pageOptions.ratioDeltaEnterLeave,
-//     };
-// };
-
 const pageEnter = (el) => {
     // console.log('hey, ici le pageEnter', el);
 
@@ -29,7 +22,7 @@ const pageEnter = (el) => {
     )
     .staggerFrom(
         el.querySelectorAll('.component') || el.querySelectorAll('div'),
-        (pageOptions.routerTransitionDuration) * 0.5,
+        pageOptions.routerTransitionDuration * 0.5,
         {
             y: -250,
             autoAlpha: 0
@@ -44,15 +37,17 @@ const pageLeave = (el) => {
 
     const tl = new TimelineLite();
 
-    tl.to(el,
-        (pageOptions.routerTransitionDuration) * pageOptions.ratioDeltaEnterLeave,
+    tl.to(
+        el,
+        pageOptions.routerTransitionDuration * pageOptions.ratioDeltaEnterLeave,
         {
             autoAlpha: 0,
             scale: 0.5,
             rotation: -25,
             force3D: false
 
-        });
+        }
+    );
 
 };
 
