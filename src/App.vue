@@ -1,42 +1,57 @@
+<!-- ° ° ° ° ° ° ° ° ° G L O B A L  L A Y O U T ° ° ° ° ° ° ° ° ° -->
+<!-- ° ° ° ° ° ° ° ° ° G L O B A L  L A Y O U T ° ° ° ° ° ° ° ° ° -->
+
 <template>
+
   <div id="app">
 
-    <!-- <div id="nav">
+    <div id="nav">
       <p>ici c'est App.vue avec le div#app à la bien</p>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/bonjour">Bonjour</router-link> |
       <router-link to="/go">Go</router-link>
-    </div> -->
+    </div>
 
-    <transition appear name="transitionRouter" mode="out-in"
-      v-on:enter="pageEnter" 
-      v-on:leave="pageLeave" 
-      :duration="routerTransitionOptionsComputed"
-    >
-      <router-view/>
+    <transition 
+		appear 
+		name="transitionRouter" 
+		mode="out-in"
+      	v-on:enter="pageEnter" 
+      	v-on:leave="pageLeave">
+
+		<router-view/>
+
     </transition>
 
   </div>
+
 </template>
+
+<!-- ° ° ° ° ° ° ° ° ° L O G I C ° ° ° ° ° ° ° ° ° -->
+<!-- ° ° ° ° ° ° ° ° ° L O G I C ° ° ° ° ° ° ° ° ° -->
 
 <script>
 
-  import { pageEnter, pageLeave, routerTransitionOptions } from '@/PagesMethods.js';
+  	import { pageEnter, pageLeave, pageOptions } from '@/PagesMethods.js';
 
-  export default {
-    methods: {
-      pageEnter, 
-      pageLeave
-    },
-    computed: {
-      routerTransitionOptionsComputed: () => {
-        return routerTransitionOptions();
-      }
-    }
-  }
+	export default {
+
+		methods: {
+			pageEnter, 
+			pageLeave
+		},
+
+		data: {
+			transitionDuration: pageOptions.routerTransitionDuration
+		}
+
+	}
+
 </script>
 
+<!-- ° ° ° ° ° ° ° ° ° S T Y L E ° ° ° ° ° ° ° ° ° -->
+<!-- ° ° ° ° ° ° ° ° ° S T Y L E ° ° ° ° ° ° ° ° ° -->
 
 <style lang="scss">
 
@@ -60,17 +75,24 @@ body {
 
 #nav {
   padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 
-.oneLetter {
-  display: inline-block;
+	p {
+		font-size: 12px;	
+	}
+
+	a {
+
+		font-weight: bold;
+		color: #2c3e50;
+
+		&.router-link-exact-active {
+
+			color: #42b983;
+
+		}
+
+	}
+
 }
 
 .router-link-exact-active {

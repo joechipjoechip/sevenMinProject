@@ -1,66 +1,73 @@
+<!-- ° ° ° ° ° ° ° ° ° T E M P L A T E ° ° ° ° ° ° ° ° ° -->
+<!-- ° ° ° ° ° ° ° ° ° T E M P L A T E ° ° ° ° ° ° ° ° ° -->
+
 <template>
+
   <div class="ComponentGo">
 
     <div class="container">
 
       <p>components/ComponentGo.vue est là en jaune</p>
 
-      <transition appear
-        v-on:enter="lettersRoll">
-
-        <p class="lettersContainer" 
-            ref="monh1" 
-            data-animparams='{"duration": 0.8, "stagger": 0.025}'>
-            {{ monLorem }}
-        </p>
-        
-      </transition>
+      <ComponentLettersRoll class="test" />
 
         <h1>{{ title }}</h1>
 
         <input type="text" v-on:input="changeTitle" />
 
+        <ComponentA class="component" msg="heyhey" />
 
     </div>
     
   </div>
+
 </template>
 
-
-
+<!-- ° ° ° ° ° ° ° ° ° L O G I C ° ° ° ° ° ° ° ° ° -->
+<!-- ° ° ° ° ° ° ° ° ° L O G I C ° ° ° ° ° ° ° ° ° -->
 
 <script>
-import { lettersRoll, goNext } from '@/ComponentsMethods.js';
 
-export default {
-  name: 'ComponentGo',
-  methods: {
+	import ComponentA from '@/components/ComponentA.vue';
+	import ComponentLettersRoll from '@/components/ComponentLettersRoll.vue';
 
-    lettersRoll,
+	import { lettersRoll, timedGoNext } from '@/ComponentsMethods.js';
 
-    changeTitle: function(e) {
-      this.title = e.target.value;
-    }
+	export default {
+		name: 'ComponentGo',
+		components: {
+			ComponentA,
+			ComponentLettersRoll
+		},
+		methods: {
 
-  },
+			lettersRoll,
 
-  mounted: function() {
+			changeTitle: function(e) {
+			this.title = e.target.value;
+			}
 
-    goNext('bonjour', 3);
+		},
 
-  },
+		mounted: function() {
 
-  data () {
-    return {
-      monLorem: this.$store.state.metaData.lorem,
-      title: 'Hi, i\'m the title'
-    }
-  }
-}
+			// timedGoNext('bonjour', 3);
+
+		},
+
+		data () {
+			return {
+			monLorem: this.$store.state.metaData.lorem,
+			title: 'Hi, i\'m the title'
+			}
+		}
+	}
+
 </script>
 
 
-
+<!-- ° ° ° ° ° ° ° ° ° S T Y L E ° ° ° ° ° ° ° ° ° -->
+<!-- ° ° ° ° ° ° ° ° ° S T Y L E ° ° ° ° ° ° ° ° ° -->
 
 <style scoped lang="scss">
   .ComponentGo {
