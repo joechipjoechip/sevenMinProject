@@ -3,7 +3,7 @@
 
 <template>
 
-  <div class="bonjour">
+  <div class="pageBonjour">
 
     <h1># B O N J O U R</h1>
 
@@ -44,22 +44,22 @@
 <!-- ° ° ° ° ° ° ° ° ° S T Y L E ° ° ° ° ° ° ° ° ° -->
 <!-- ° ° ° ° ° ° ° ° ° S T Y L E ° ° ° ° ° ° ° ° ° -->
 
-<style lang="scss">
+<style scoped lang="scss">
 
 	body {
 		background-color: greenyellow;
 	}
 
-	.bonjour {
-		position: relative;
-		width: 80%;
-		display: block;
-		margin: 0 auto;
-		padding: 10px;
-		top: 0;
+	// .bonjour {
+	// 	position: relative;
+	// 	width: 80%;
+	// 	display: block;
+	// 	margin: 0 auto;
+	// 	padding: 10px;
+	// 	top: 0;
 
-		border: solid 1px orange;
-	}
+	// 	border: solid 1px orange;
+	// }
 	
 </style>
 

@@ -6,18 +6,17 @@ Vue.use(Router)
 
 export default new Router({
 
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes: [
+	mode: 'history',
+	base: process.env.BASE_URL,
+	routes: [
 
 		// HOME
 		{
 			path: '/',
 			name: 'home',
 			component: () => import('./views/Home.vue'),
-			meta: {
-				bgColor: 'purple'
-			}
+			// some params for this specific route here
+			meta: {}
 		},
 
 		// ABOUT
@@ -30,9 +29,8 @@ export default new Router({
 			// which is lazy-loaded when the route is visited.
 			// component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
 			component: () => import('./views/About.vue'),
-			meta: {
-				bgColor: 'orange'
-			}
+			// some params for this specific route here
+			meta: {}
 		},
 
 		// BONJOUR
@@ -40,9 +38,8 @@ export default new Router({
 			path: '/bonjour',
 			name: 'bonjour',
 			component: () => import('./views/Bonjour.vue'),
-			meta: {
-				bgColor: 'green'
-			}
+			// some params for this specific route here
+			meta: {}
 		},
 
 		// GO
@@ -50,9 +47,8 @@ export default new Router({
 			path: '/go',
 			name: 'go',
 			component: () => import('./views/Go.vue'),
-			meta: {
-				bgColor: 'red'
-			}
+			// some params for this specific route here
+			meta: {}
 		}
 
 	]

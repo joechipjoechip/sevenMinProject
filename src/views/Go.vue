@@ -39,7 +39,7 @@
 <!-- ° ° ° ° ° ° ° ° ° S T Y L E ° ° ° ° ° ° ° ° ° -->
 <!-- ° ° ° ° ° ° ° ° ° S T Y L E ° ° ° ° ° ° ° ° ° -->
 
-<style lang="scss">
+<style scoped lang="scss">
 
   	body {
 		background-color: orange;

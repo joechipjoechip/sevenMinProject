@@ -35,6 +35,9 @@
 
 	export default {
 		name: 'ComponentGo',
+		props: {
+			msg: String
+		},
 
 		components: {
 			ComponentA,
