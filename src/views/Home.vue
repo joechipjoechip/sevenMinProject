@@ -18,8 +18,8 @@
 <script>
 
 	// @ is an alias to /src
-	import HelloWorld from '@/components/HelloWorld.vue';
-	import { Events } from '@/App.vue';
+	import HelloWorld from '@/components/ComponentHelloWorld.vue';
+	// import { Events } from '@/App.vue';
 
 	export default {
 
@@ -30,7 +30,7 @@
 		},
 
 		mounted() {
-			Events.$emit('change_bg', 'red');
+			// Events.$emit('change_bg', 'red');
 		}
 
 	}
