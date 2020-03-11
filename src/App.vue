@@ -3,7 +3,7 @@
 
 <template>
 
-  <div id="app" :class="routeName">
+  <div id="app" :data-route="routeName">
 
     <div id="nav">
 
@@ -34,8 +34,8 @@
 
 <script>
 
-	import { pageEnter, pageLeave, pageOptions } from '@/PagesMethods.js';
-	import layoutMethods from '@/LayoutMethods.js';
+	import { pageOptions, pageEnter, pageLeave, pageGoTo } from '@/PagesMethods.js';
+	// import layoutMethods from '@/LayoutMethods.js';
 
 	import Vue from 'vue';
 	export const Events = new Vue();
@@ -47,8 +47,8 @@
 		},
 
 		methods: {
-			pageEnter, 
-			pageLeave,
+			pageEnter,
+			pageLeave
 			// changeBg(obj) { 
 			// 	// console.log(layoutMethods);
 			// 	layoutMethods.changeBg(obj);
