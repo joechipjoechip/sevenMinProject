@@ -34,7 +34,7 @@
 
 <script>
 
-	import { pageOptions, pageEnter, pageLeave, pageGoTo } from '@/PagesMethods.js';
+	import { pageOptions, pageEnter, pageLeave } from '@/PagesMethods.js';
 	// import layoutMethods from '@/LayoutMethods.js';
 
 	import Vue from 'vue';
