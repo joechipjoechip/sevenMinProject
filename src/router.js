@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // import Home from './views/Home.vue'
+import VideoView from './views/Video.vue'
 
 Vue.use(Router)
 
@@ -47,6 +48,15 @@ export default new Router({
 			path: '/go',
 			name: 'go',
 			component: () => import('./views/Go.vue'),
+			// some params for this specific route here
+			meta: {}
+		},
+
+		// VIDEO
+		{
+			path: '/video/:videoId',
+			name: 'video',
+			component: VideoView,
 			// some params for this specific route here
 			meta: {}
 		}
