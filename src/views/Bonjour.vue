@@ -34,7 +34,7 @@
 		},
 
 		mounted() {
-			Events.$emit('change_bg', 'orange');
+			// 
 		}
 		
 	}

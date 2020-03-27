@@ -5,11 +5,9 @@
 
   <div class="componentA">
 
-    <p>componentA</p>
+    <p>salut je suis le component importé</p>
 
     <h1>{{ msg }}</h1>
-
-	<a href="/bonjour">go to bonjour</a>
     
   </div>
 
@@ -22,7 +20,6 @@
 <script>
 
 	export default {
-		name: 'ComponentA',
 		props: {
 			msg: String
 		}

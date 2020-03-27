@@ -25,6 +25,8 @@
 
     </transition>
 
+	<Tartanpion msg="wesh la mif"/>
+
   </div>
 
 </template>
@@ -35,24 +37,28 @@
 <script>
 
 	import { pageOptions, pageEnter, pageLeave } from '@/PagesMethods.js';
+	import Tartanpion from '@/components/ComponentA.vue';
 	// import layoutMethods from '@/LayoutMethods.js';
-
-	import Vue from 'vue';
-	export const Events = new Vue();
 
 	export default {
 
 		components: {
-			Events
+			Tartanpion
 		},
 
 		methods: {
 			pageEnter,
-			pageLeave
-			// changeBg(obj) { 
-			// 	// console.log(layoutMethods);
-			// 	layoutMethods.changeBg(obj);
-			// }
+			pageLeave,
+			coucou: function () {
+
+				console.log('cici');
+
+				console.log(this);
+
+
+				// debugger;
+
+			}
 		},
 
 		data: function () {
@@ -75,7 +81,11 @@
 		mounted() {
 			// Events.$on("change_bg", this.changeBg);
 
-			console.log('"this" from App.vue/mounted -> ', this);
+			// console.log('"this" from App.vue/mounted -> ', this);
+
+			console.log('here is the mounted()');
+		
+
 		},
 
 		beforeDestroy() {
