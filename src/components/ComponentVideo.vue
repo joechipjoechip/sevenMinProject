@@ -66,15 +66,12 @@ export default {
 	},
 
 	mounted() {
-		console.log('heyhey dans le component video : ', this.$route.params.videoId);
-
-		// this.getVideoUrl();
+		
 	},
 
 	data() {
 		return {
-			// videoId: this.$route.params.videoId
-			videoUrl: `./../assets/videos/${this.$store.state.storyMap.videos[this.$route.params.videoId].self.url}`
+			videoUrl: `/assets/videos/${this.$store.state.storyMap.videos[this.$route.params.videoId].self.url}`
 		}
 	},
 };
