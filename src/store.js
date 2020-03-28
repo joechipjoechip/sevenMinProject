@@ -9,7 +9,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 	state: {
 		metaData: MetaData,
-		storyMap: StoryMap
+		storyMap: StoryMap,
+		currentTime: 0,
+		actualVideoObj: {}
 	},
 
 	mutations: {

@@ -33,30 +33,40 @@ export default {
 
 	methods: {
 
-		getVideoUrl() {
-			// let param = this.$store.state.storyMap.videos[this.$route.params.videoId].self.url;
-			// let videos = require.context('./../assets/', false, /\.mp4$/);
-
-			// let result = videos('./' + param + '.mp4');
-
-			// return  result;
-
-		},
-
 		onDurationChange() {
 
 		},
 
-		onTimeUpdate() {
+		onTimeUpdate( event ) {
 
+			this.$store.state.currentTime = event.target.currentTime;
+
+			
+			this.compareTimeCodes();
+			// true
 		},
 
 		onPlaying() {
 			console.log('play triggered');
+
 		},
 
 		onPause() {
 			console.log('pause triggered');
+		},
+
+		compareTimeCodes() {
+
+			this.choices.forEach( oneChoice => {
+	
+				if ( oneChoice.choiceTimeCode >= this.$store.state.currentTime ) {
+				
+					console.log('comparing : ', oneChoice.choiceTimeCode, ' and ', this.$store.state.currentTime);
+					this.$emit('activateChoice', oneChoice);
+				
+				}
+
+			});
 		}
 
 	},
@@ -66,7 +76,13 @@ export default {
 	},
 
 	mounted() {
-		
+
+		// on stock la data de la video en cours dans le state :
+		this.$store.state.actualVideoObj = this.$store.state.storyMap.videos[this.route];
+
+		this.route = this.$route.params.videoId;
+		this.choices = this.$store.state.storyMap.videos[this.route].components.choices;
+
 	},
 
 	data() {

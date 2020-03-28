@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // import Home from './views/Home.vue'
-import VideoView from './views/Video.vue'
+import Scene from './views/Scene.vue'
 
 Vue.use(Router)
 
@@ -54,9 +54,9 @@ export default new Router({
 
 		// VIDEO
 		{
-			path: '/video/:videoId',
-			name: 'video',
-			component: VideoView,
+			path: '/scene/:videoId',
+			name: 'scene',
+			component: Scene,
 			// some params for this specific route here
 			meta: {}
 		}

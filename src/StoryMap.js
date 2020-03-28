@@ -8,48 +8,36 @@ export default {
 
                 url: "1_salon.mp4",
                 controls: true,
-                options: {
-                    endPoint: 500
-                }
+                options: {}
  
             },
 
             components: {
 
-                choices: {
+                choices: [
+                    {
+                        id: "ouiPoint",
+                        text: "Oui !",
+                        route: "cuisine",
+                        choiceTimeCode: 3
+                    },
 
-                    availableChoices: [
-
-                        {
-                            id: "ouiPoint",
-                            text: "Oui !",
-                            route: "cuisine",
-                            displayTime: 250
-                            
-                        },
-    
-                        {
-                            id: "nonPoint",
-                            text: "Non !",
-                            route: "vtff",
-                            displayTime: 290
-                        }
-
-                    ],
-
-                    relance: {
-                        delay: 700,
-                        url: "",
-                        sequences: [
-                               '1_salon_relance_ohgary.wav',
-                               '1_salon_relance_tuclickoukwa.wav'
-                        ]
-                  
+                    {
+                        id: "nonPoint",
+                        text: "Non !",
+                        route: "vtff",
+                        choiceTimeCode: 3
                     }
 
-                }
+                ],
 
-            }
+                relances: [
+                    { delay: 1000, url: "" }
+                ]
+
+            },
+
+        
 
         },
         
@@ -59,41 +47,30 @@ export default {
 
                 url: "1_gtfo.mp4",
                 controls: true,
-                options: {
-                    endPoint: 600
-                }
+                options: {}
  
             },
 
             components: {
 
-                choices: {
-
-                    availableChoices: [
-
-                        {
-                            id: "garage",
-                            text: "allé au garage",
-                            route: "garage",
-                            displayTime: 150
-
-                        },
-
-                        {
-                            id: "sport",
-                            text: "aller aux sports",
-                            route: "sport",
-                            displayTime: 190
-                        }
-
-                    ],
-
-                    relance: {
-                        delay: 1000,
-                        url: "",
-                       
+                choices: [
+                    {
+                        id: "garage",
+                        text: "allé au garage",
+                        route: "garage",
+                        choiceTimeCode: 150
+                    },
+                    {
+                        id: "sport",
+                        text: "aller aux sports",
+                        route: "sport",
+                        choiceTimeCode: 190
                     }
-                }
+                ],
+
+                relances: [
+                    { delay: 1000, url: "" }
+                ]
 
             }
 
@@ -105,51 +82,37 @@ export default {
 
                 url: "2_intro.mp4",
                 controls: true,
-                options: {
-                    endPoint: 500
-                }
+                options: {}
  
             },
 
             components: {
 
 
-                choices: {
-
-                    availableChoices: [
-
-                        {
-                            id: "ordinateur",
-                            text: "Chercher sur l'ordinateur",
-                            route: "ordinateur",
-                            displayTime: 150
-
-                        },
-
-                        {
-                            id: "tradeur",
-                            text: "Appeler le mec du trading",
-                            route: "tradeur",
-                            displayTime: 290
-                        },
-
-                        {
-                            id: "weed",
-                            text: "Fumer le bon de campagne",
-                            route: "weed",
-                            displayTime: 300
-                        }
-
-                    ],
-
-                    relance: {
-                        delay: 1000,
-                        url: "",
-                        sequences: [
-                            '2_intro_relance.wav',
-                        ]
+                choices: [
+                    {
+                        id: "ordinateur",
+                        text: "Chercher sur l'ordinateur",
+                        route: "ordinateur",
+                        choiceTimeCode: 150
+                    },
+                    {
+                        id: "tradeur",
+                        text: "Appeler le mec du trading",
+                        route: "tradeur",
+                        choiceTimeCode: 290
+                    },
+                    {
+                        id: "weed",
+                        text: "Fumer le bon de campagne",
+                        route: "weed",
+                        choiceTimeCode: 300
                     }
-                }
+                ],
+
+            relances: [
+                    { delay: 1000, url: "" }
+                ]
 
             }
 
