@@ -5,11 +5,12 @@
   <div class="video-big-container">
 
         <ComponentVideo v-on:activateChoice="activateButton">
+
+             <ComponentChoiceManager></ComponentChoiceManager>
+
         </ComponentVideo>
 
-        <ComponentOneChoice>
-        </ComponentOneChoice>
- 
+
   </div>
 
 </template>
@@ -20,16 +21,14 @@
 <script>
 
 	import ComponentVideo from '@/components/ComponentVideo';
-	import ComponentOneChoice from '@/components/ComponentOneChoice';
+    import ComponentChoiceManager from '@/components/ComponentChoiceManager';
 
 	export default {
 
-        props: {
-          //  choix: this.choices
-        },
+        name: "Scene",
 
 		components: {
-			ComponentVideo, ComponentOneChoice
+            ComponentVideo, ComponentChoiceManager
         },
 
         methods: { 
@@ -66,6 +65,7 @@
             }
         }
     }
+    
 </script>
 
 <style lang="scss">

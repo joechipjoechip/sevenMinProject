@@ -25,6 +25,7 @@
 // import { lettersRoll, timedGoNext } from "@/ComponentsMethods.js";
 
 export default {
+
 	name: "ComponentVideo",
 
 	// props: {
@@ -41,7 +42,6 @@ export default {
 
 			this.$store.state.currentTime = event.target.currentTime;
 
-			
 			this.compareTimeCodes();
 			// true
 		},
@@ -89,7 +89,8 @@ export default {
 		return {
 			videoUrl: `/assets/videos/${this.$store.state.storyMap.videos[this.$route.params.videoId].self.url}`
 		}
-	},
+	}
+
 };
 </script>
 

@@ -3,7 +3,9 @@
 
 <template>
 
- <ComponentOnechoice></ComponentOnechoice>
+    <div>
+        <ComponentOnechoice></ComponentOnechoice>
+    </div>
  
 </template>
 
@@ -14,11 +16,13 @@
 
 import ComponentOneChoice from "@/components/ComponentOneChoice";
 
+
 export default {
 
+	name: 'ComponentChoiceManager',
     components: {
-        ComponentOneChoice
-    }
+      ComponentOneChoice
+    },
 
 	methods: {
 
@@ -37,6 +41,7 @@ export default {
 		}
 	},
 };
+
 </script>
 
 

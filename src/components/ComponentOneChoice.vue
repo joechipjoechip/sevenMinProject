@@ -3,8 +3,12 @@
 
 <template>
 
-    <a class="oneChoice" href="">afazfazf </a>
-
+	<div>
+		<!--<a class="oneChoice" href="">afazfazf </a>-->
+		<!-- <component is="ComponentOneChoice"></component> -->
+		<a href="#"></a>
+	</div>
+	
 </template>
 
 <!-- ° ° ° ° ° ° ° ° ° L O G I C ° ° ° ° ° ° ° ° ° -->
@@ -13,10 +17,12 @@
 <script>
 // import { lettersRoll, timedGoNext } from "@/ComponentsMethods.js";
 
+
 export default {
 
-	methods: {
+	name: "ComponentOneChoice",
 
+	methods: {
 	},
 
 	created() {
@@ -30,7 +36,7 @@ export default {
 	data() {
 		return {
 		}
-	},
+	}
 };
 </script>
 
