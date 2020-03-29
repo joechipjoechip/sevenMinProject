@@ -4,13 +4,12 @@
 
   <div class="video-big-container">
 
-        <ComponentVideo v-on:activateChoice="activateButton">
+        <ComponentVideo v-on:activateChoice="activateButton"></ComponentVideo>
 
-             <ComponentChoiceManager></ComponentChoiceManager>
+        <ComponentChoiceManager></ComponentChoiceManager>
 
-        </ComponentVideo>
-
-
+ 
+            
   </div>
 
 </template>
@@ -38,8 +37,14 @@
             },
 
             activateButton( infos ) {
+
                 console.log('activate mammamammennnn ', infos.route);
-            }
+
+                // create un component ONe choice en passant infos à ChoiceManager
+                this.$store.state.actualChoices.push(infos);
+
+
+            },
 
         },
 
@@ -54,8 +59,15 @@
         },
 
 		mounted() {
-            // Events.$emit('change_bg', 'red');
-            // this.videoObj = this.$store.state.actualVideoObj;
+
+            // update actualVideoObj
+            this.$store.state.actualVideoObj = this.$store.state.storyMap.videos[this.route];
+
+            // update this.route
+            this.route = this.$route.params.videoId;
+
+
+            this.choices = this.$store.state.storyMap.videos[this.route].components.choices;
 
         },
 

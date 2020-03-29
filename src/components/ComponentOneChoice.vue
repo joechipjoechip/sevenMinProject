@@ -4,8 +4,6 @@
 <template>
 
 	<div>
-		<!--<a class="oneChoice" href="">afazfazf </a>-->
-		<!-- <component is="ComponentOneChoice"></component> -->
 		<a href="#"></a>
 	</div>
 	
@@ -21,6 +19,10 @@
 export default {
 
 	name: "ComponentOneChoice",
+
+	props: {
+		// infos: Object
+	},
 
 	methods: {
 	},

@@ -4,7 +4,15 @@
 <template>
 
     <div>
-        <ComponentOnechoice></ComponentOnechoice>
+
+        <div v-for="choice in choices" :key="choice.text">
+
+			<!-- <ComponentOnechoice hey="{{choice.text}}" /> -->
+				<p>{{choice.text}}</p>
+			<!-- </ComponentOneChoice> -->
+			
+		</div>
+
     </div>
  
 </template>
@@ -38,6 +46,7 @@ export default {
 
 	data() {
 		return {
+			choices: this.$store.state.actualChoices
 		}
 	},
 };

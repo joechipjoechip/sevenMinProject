@@ -19,14 +19,14 @@ export default {
                         id: "ouiPoint",
                         text: "Oui !",
                         route: "cuisine",
-                        choiceTimeCode: 3
+                        choiceTimeCode: 4
                     },
 
                     {
                         id: "nonPoint",
                         text: "Non !",
                         route: "vtff",
-                        choiceTimeCode: 3
+                        choiceTimeCode: 2
                     }
 
                 ],

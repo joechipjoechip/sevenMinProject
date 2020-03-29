@@ -11,7 +11,8 @@ export default new Vuex.Store({
 		metaData: MetaData,
 		storyMap: StoryMap,
 		currentTime: 0,
-		actualVideoObj: {}
+		actualVideoObj: {},
+		actualChoices: []
 	},
 
 	mutations: {

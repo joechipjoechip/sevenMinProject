@@ -13,6 +13,7 @@
 		@timeupdate="onTimeUpdate" 
 		@playing="onPlaying" 
 		@pause="onPause"
+		@onStart="onStart"
 	>
 	</video>
 
@@ -34,20 +35,42 @@ export default {
 
 	methods: {
 
-		onDurationChange() {
+		
 
+		onDurationChange(event) {
+			console.log('yeet' , event)
+		},
+
+		onStart() {
+			console.log('wsh le onStart triggered');
 		},
 
 		onTimeUpdate( event ) {
 
+			this.currentTime = event.target.currentTime;
+
 			this.$store.state.currentTime = event.target.currentTime;
 
+			// checker si la video est arrivé a la fin
+			// if ( this.currentTime < 0.5 ) {
+				
+			// 	this.alreadySentChoice = {};
+
+			// }
+
+			//console.log('---> ', event.target.played);
+
+
 			this.compareTimeCodes();
-			// true
+
 		},
 
 		onPlaying() {
 			console.log('play triggered');
+
+			// vérifier si la vidéo a déjà été jouée entièrement une fois
+
+			// si oui : 
 
 		},
 
@@ -55,15 +78,34 @@ export default {
 			console.log('pause triggered');
 		},
 
+	
+
 		compareTimeCodes() {
 
 			this.choices.forEach( oneChoice => {
+				
 	
-				if ( oneChoice.choiceTimeCode >= this.$store.state.currentTime ) {
+				if ( this.currentTime > oneChoice.choiceTimeCode ) {
+					console.log(' on est dans le if');
 				
-					console.log('comparing : ', oneChoice.choiceTimeCode, ' and ', this.$store.state.currentTime);
-					this.$emit('activateChoice', oneChoice);
-				
+					// console.log('comparing : ', oneChoice.choiceTimeCode, ' and ', this.currentTime);
+			
+					if ( !this.alreadySentChoice[oneChoice.id] ) {
+
+						this.$emit('activateChoice', oneChoice);
+
+						this.alreadySentChoice[oneChoice.id] = true;
+						
+					}
+
+				} else {
+
+					console.log(' on est dans le else');
+
+					this.alreadySentChoice[oneChoice.id] = false;
+
+					// this.$store.state.actualChoices.filter( choice => choice.id === oneChoice.id)[0]
+
 				}
 
 			});
@@ -77,11 +119,12 @@ export default {
 
 	mounted() {
 
-		// on stock la data de la video en cours dans le state :
-		this.$store.state.actualVideoObj = this.$store.state.storyMap.videos[this.route];
+		this.alreadySentChoice = {};
 
 		this.route = this.$route.params.videoId;
+
 		this.choices = this.$store.state.storyMap.videos[this.route].components.choices;
+		
 
 	},
 
