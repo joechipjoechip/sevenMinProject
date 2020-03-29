@@ -5,8 +5,8 @@
 
     <div>
 
-        <div v-for="choice in choices" :key="choice.text">
-
+        <div v-for="choice in choices" :key="choice.id">
+  
 			<!-- <ComponentOnechoice hey="{{choice.text}}" /> -->
 				<p>{{choice.text}}</p>
 			<!-- </ComponentOneChoice> -->
@@ -42,6 +42,16 @@ export default {
 
 	mounted() {
 
+		console.log('- - - - -depuis le choice manager : mounted : ', this.$store.state.actualChoices);
+		
+
+	},
+
+	updated() {
+
+		console.log('- - - - -depuis le choice manager : updated : ', this.$store.state.actualChoices);
+
+
 	},
 
 	data() {
@@ -49,6 +59,9 @@ export default {
 			choices: this.$store.state.actualChoices
 		}
 	},
+
+
+		
 };
 
 </script>

@@ -13,8 +13,6 @@
 <!-- ° ° ° ° ° ° ° ° ° L O G I C ° ° ° ° ° ° ° ° ° -->
 
 <script>
-// import { lettersRoll, timedGoNext } from "@/ComponentsMethods.js";
-
 
 export default {
 

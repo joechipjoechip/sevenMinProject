@@ -23,19 +23,12 @@
 <!-- ° ° ° ° ° ° ° ° ° L O G I C ° ° ° ° ° ° ° ° ° -->
 
 <script>
-// import { lettersRoll, timedGoNext } from "@/ComponentsMethods.js";
 
 export default {
 
 	name: "ComponentVideo",
 
-	// props: {
-	// 	videoUrl: String
-	// },
-
 	methods: {
-
-		
 
 		onDurationChange(event) {
 			console.log('yeet' , event)
@@ -51,41 +44,24 @@ export default {
 
 			this.$store.state.currentTime = event.target.currentTime;
 
-			// checker si la video est arrivé a la fin
-			// if ( this.currentTime < 0.5 ) {
-				
-			// 	this.alreadySentChoice = {};
-
-			// }
-
-			//console.log('---> ', event.target.played);
-
-
 			this.compareTimeCodes();
 
 		},
 
 		onPlaying() {
 			console.log('play triggered');
-
-			// vérifier si la vidéo a déjà été jouée entièrement une fois
-
-			// si oui : 
-
 		},
 
 		onPause() {
 			console.log('pause triggered');
 		},
 
-	
-
 		compareTimeCodes() {
 
 			this.choices.forEach( oneChoice => {
 				
 	
-				if ( this.currentTime > oneChoice.choiceTimeCode ) {
+				if ( this.currentTime >= oneChoice.choiceTimeCode ) {
 					console.log(' on est dans le if');
 				
 					// console.log('comparing : ', oneChoice.choiceTimeCode, ' and ', this.currentTime);
@@ -97,14 +73,6 @@ export default {
 						this.alreadySentChoice[oneChoice.id] = true;
 						
 					}
-
-				} else {
-
-					console.log(' on est dans le else');
-
-					this.alreadySentChoice[oneChoice.id] = false;
-
-					// this.$store.state.actualChoices.filter( choice => choice.id === oneChoice.id)[0]
 
 				}
 
