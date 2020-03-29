@@ -7,6 +7,7 @@
         <ComponentVideo v-on:activateChoice="activateButton" />
 
         <ComponentChoiceManager />
+        <ComponentHud />
             
   </div>
 
@@ -19,13 +20,14 @@
 
 	import ComponentVideo from '@/components/ComponentVideo';
     import ComponentChoiceManager from '@/components/ComponentChoiceManager';
+    import ComponentHud from '@/components/ComponentHud';
 
 	export default {
 
         name: "Scene",
 
 		components: {
-            ComponentVideo, ComponentChoiceManager
+            ComponentVideo, ComponentChoiceManager, ComponentHud
         },
 
         methods: { 
@@ -43,6 +45,8 @@
 
             },
 
+            
+
         },
 
 		mounted() {
@@ -54,11 +58,14 @@
 
         },
 
+        
+
         data() {
             return {
                 //
             }
         }
+
     }
     
 </script>

@@ -14,6 +14,12 @@ export default {
 
             components: {
 
+                items: [
+                    { apparitionTimeCode: 1, 
+                      url:"",   
+                    },
+                ],
+
                 choices: [
                     {
                         id: "ouiPoint",
