@@ -18,14 +18,14 @@ export default {
                     {
                         id: "ouiPoint",
                         text: "Oui !",
-                        route: "cuisine",
+                        route: "intro",
                         choiceTimeCode: 4
                     },
 
                     {
                         id: "nonPoint",
                         text: "Non !",
-                        route: "vtff",
+                        route: "gtfo",
                         choiceTimeCode: 2
                     }
 
@@ -58,13 +58,13 @@ export default {
                         id: "garage",
                         text: "allé au garage",
                         route: "garage",
-                        choiceTimeCode: 150
+                        choiceTimeCode: 2
                     },
                     {
                         id: "sport",
                         text: "aller aux sports",
                         route: "sport",
-                        choiceTimeCode: 190
+                        choiceTimeCode: 1
                     }
                 ],
 
