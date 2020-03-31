@@ -36,7 +36,7 @@ export default {
 			this.$el.play();
 		},
 
-		onDurationChange(event) {
+		onDurationChange() {
 			// console.log('yeet' , event);
 		},
 
@@ -69,27 +69,31 @@ export default {
 		
 		checkCallToAction() {
 
-			this.callToActions.forEach( oneCallToAction => {
+			if (this.callToActions) {
 
-				if( this.currentTime >= oneCallToAction.timeCode ) {
-
-					if ( !this.alreadySentCta[oneCallToAction.id] ) {
-
-						this.$el.pause();
-						
-						console.log('store cta by comitting : ', this.$store.state.actualCallToActions);
-
-						// mettre le call to action dans le store
-						this.$store.commit('addCallToActions', oneCallToAction);
+				this.callToActions.forEach( oneCallToAction => {
 	
-
-						this.alreadySentCta[oneCallToAction.id] = true;
-
+					if( this.currentTime >= oneCallToAction.timeCode ) {
+	
+						if ( !this.alreadySentCta[oneCallToAction.id] ) {
+	
+							this.$el.pause();
+							
+							console.log('store cta by comitting : ', this.$store.state.actualCallToActions);
+	
+							// mettre le call to action dans le store
+							this.$store.commit('addCallToActions', oneCallToAction);
+		
+	
+							this.alreadySentCta[oneCallToAction.id] = true;
+	
+						}
+	
 					}
+	
+				});
 
-				}
-
-			});
+			}
 		
 		},
 
