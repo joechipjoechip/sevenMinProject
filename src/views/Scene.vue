@@ -23,6 +23,7 @@
 	import ComponentVideo from '@/components/ComponentVideo';
     import ComponentChoiceManager from '@/components/ComponentChoiceManager';
     import ComponentHud from '@/components/ComponentHud';
+    import { mapGetters } from 'vuex';
 
 	export default {
 
@@ -30,6 +31,12 @@
 
 		components: {
             ComponentVideo, ComponentChoiceManager, ComponentHud
+        },
+
+        computed : {
+            ...mapGetters([
+                    'addMana',
+            ])
         },
 
         methods: { 
@@ -41,23 +48,16 @@
             activateButton( infos ) {
 
                 console.log('activate mammamammennnn ', infos.route);
+         
 
                 // create un component ONe choice en passant infos à ChoiceManager
                 this.$store.state.actualChoices.push(infos);
 
             },
 
-            supposedToAddMana() {
-
-                console.log('supposed trigerred');
-                this.$store.commit('addMana', 54);
-
-                console.log('$store.mana : ', this.$store.state.mana);
-
+            addMana(infos) {
+                    console.log("fabfabfab");
             }
-
-            
-
         },
 
 		mounted() {

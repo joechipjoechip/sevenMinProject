@@ -19,6 +19,14 @@ export default new Vuex.Store({
 		vie: 100
 	},
 
+
+
+	getters: {
+		valueMana: (state, getters) => {
+			return console.log('return getters mana',state.mana)
+		}
+	},
+
 	mutations: {
 
 		addMana:(state, x) => {

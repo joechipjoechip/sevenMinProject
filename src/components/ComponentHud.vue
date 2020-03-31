@@ -30,7 +30,7 @@ export default {
 
         // this.$store.commit('addMana', 600);
 
-        console.log("hey le mana ", this.$store.state.mana);
+        console.log("hey le mana ", this.$store.state.mana +50);
 
     
 	},

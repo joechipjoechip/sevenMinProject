@@ -5,9 +5,7 @@
   <div id="app" :data-route="routeName">
     <div id="nav">
       <router-link :to="{ name: 'home' }">Home</router-link>
-      <router-link :to="{ name: 'about' }">About</router-link>
-      <router-link :to="{ name: 'bonjour' }">Bonjour</router-link>
-      <router-link :to="{ name: 'go' }">Go</router-link>
+ 
     </div>
 
     <transition

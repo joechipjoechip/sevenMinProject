@@ -15,8 +15,11 @@ export default {
             components: {
 
                 items: [
-                    { apparitionTimeCode: 1, 
-                      url:"",   
+                    { 
+                        apparitionTimeCode: 1, 
+                        url: "", 
+                        mana: 0,
+                        vie: 0  
                     },
                 ],
 
