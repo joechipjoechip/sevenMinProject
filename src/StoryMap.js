@@ -53,7 +53,10 @@ export default {
                 ],
 
                 relances: [
-                    { delay: 1000, url: "" }
+                    { 
+						delay: 1000, 
+						url: "" 
+					}
                 ]
 
             },
@@ -90,7 +93,10 @@ export default {
                 ],
 
                 relances: [
-                    { delay: 1000, url: "" }
+                    { 
+						delay: 1000, 
+						url: "" 
+					}
                 ]
 
             }
@@ -132,7 +138,10 @@ export default {
                 ],
 
             relances: [
-                    { delay: 1000, url: "" }
+                    { 
+						delay: 1000, 
+						url: "" 
+					}
                 ]
 
             }
