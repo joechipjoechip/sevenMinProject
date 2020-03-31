@@ -6,11 +6,11 @@
     <div>
 
         <div v-for="choice in choices" :key="choice.id">
-  
+  		
 			<!-- <ComponentOnechoice hey="{{choice.text}}" /> -->
 				<a :href="choice.route">{{choice.text}}</a>
 			<!-- </ComponentOneChoice> -->
-			
+	
 		</div>
 
     </div>
@@ -32,7 +32,11 @@ export default {
       ComponentOneChoice
     },
 
-	methods: {
+	computed: {
+		
+		// updateChoices() {
+		// 	this.choices = this.$store.state.actualChoices;
+		// }
 
 	},
 
@@ -42,21 +46,22 @@ export default {
 
 	mounted() {
 
-		console.log('- - - - -depuis le choice manager : mounted : ', this.$store.state.actualChoices);
-		
+		// console.log('- - - - -depuis le choice manager : mounted : ', this.$store.state.actualChoices);
+		this.choices = this.$store.state.actualChoices;
 
 	},
 
 	updated() {
 
 		console.log('- - - - -depuis le choice manager : updated : ', this.$store.state.actualChoices);
+		this.choices = this.$store.state.actualChoices;
 
 
 	},
 
 	data() {
 		return {
-			choices: this.$store.state.actualChoices
+			choices: this.choices
 		}
 	},
 

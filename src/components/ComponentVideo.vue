@@ -31,7 +31,7 @@ export default {
 	methods: {
 
 		onDurationChange(event) {
-			console.log('yeet' , event)
+			console.log('yeet' , event);
 		},
 
 		onStart() {
@@ -43,6 +43,8 @@ export default {
 			this.currentTime = event.target.currentTime;
 
 			this.$store.state.currentTime = event.target.currentTime;
+			
+			this.checkStartingVideo();
 
 			this.compareTimeCodes();
 
@@ -50,10 +52,29 @@ export default {
 
 		onPlaying() {
 			console.log('play triggered');
+
 		},
 
 		onPause() {
 			console.log('pause triggered');
+		},
+
+		checkStartingVideo() {
+
+			// console.log("actualChoices avant : ", this.$store.state.actualChoices.length);
+
+			if (this.currentTime > 0 && this.currentTime <= this.minTimeCode) {
+
+				if ( this.$store.state.actualChoices.length > 0 ) {
+					
+					this.$store.commit('resetChoices');
+
+					this.alreadySentChoice = {};
+					// console.log("actualChoices après : ", this.$store.state.actualChoices.length);
+					
+				}
+
+			}
 		},
 
 		compareTimeCodes() {
@@ -62,7 +83,6 @@ export default {
 				
 	
 				if ( this.currentTime >= oneChoice.choiceTimeCode ) {
-					console.log(' on est dans le if');
 				
 					// console.log('comparing : ', oneChoice.choiceTimeCode, ' and ', this.currentTime);
 			
@@ -92,7 +112,16 @@ export default {
 		this.route = this.$route.params.videoId;
 
 		this.choices = this.$store.state.storyMap.videos[this.route].components.choices;
-		
+
+		this.minTimeCode = 999;
+
+		this.choices.forEach(choice => {
+
+			if (choice.choiceTimeCode < this.minTimeCode) {
+				this.minTimeCode = choice.choiceTimeCode;
+			}
+
+		});
 
 	},
 
