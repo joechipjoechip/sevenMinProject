@@ -2,12 +2,14 @@
 <!-- ° ° ° ° ° ° ° ° ° T E M P L A T E ° ° ° ° ° ° ° ° ° -->
 <template>
 
-  <div class="video-big-container">
+  <div class="scene-container">
 
         <ComponentVideo v-on:activateChoice="activateButton" />
 
         <ComponentChoiceManager />
         <ComponentHud />
+
+        <div v-on:click="supposedToAddMana">test addMana</div>
             
   </div>
 
@@ -45,6 +47,15 @@
 
             },
 
+            supposedToAddMana() {
+
+                console.log('supposed trigerred');
+                this.$store.commit('addMana', 54);
+
+                console.log('$store.mana : ', this.$store.state.mana);
+
+            }
+
             
 
         },
@@ -72,7 +83,7 @@
 
 <style lang="scss">
 
-    .video-big-container {
+    .scene-container {
         width: 70%;
         margin: 0 auto;
         display: block;

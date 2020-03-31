@@ -19,16 +19,10 @@ export default new Vuex.Store({
 		vie: 100
 	},
 
-	getters: {
-		value: state => {
-			return state.value
-		}
-	},
-
 	mutations: {
 
 		addMana:(state, x) => {
-			state.mana = parseInt(this.mana + x);
+			state.mana += x;
 		}
 
 	},
