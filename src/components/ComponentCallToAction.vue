@@ -8,7 +8,14 @@
 
 		<div v-for="cta in ctas" :key="cta.id">
 
-			<p v-on:click="manaClick">{{cta.text}}</p>
+			<div v-on:click="manaClick">
+
+				<p v-if="cta.text">{{cta.text}}</p>
+
+				<img v-if="cta.media" :src="'/assets/images/' + cta.media" />
+				
+			</div>
+
 
 		</div>
 
@@ -65,7 +72,8 @@ export default {
 
 	data() {
 		return {
-			ctas: this.$store.state.actualCallToActions
+			ctas: this.$store.state.actualCallToActions,
+			imagePath: `/assets/images/`
 		}
 	}
 };
