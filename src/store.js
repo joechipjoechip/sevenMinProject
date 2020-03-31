@@ -16,6 +16,7 @@ export default new Vuex.Store({
 		currentTime: 0,
 		actualVideoObj: {},
 		actualChoices: [],
+		actualCallToActions: [],
 		mana: 100,
 		vie: 100
 	},
@@ -37,17 +38,16 @@ export default new Vuex.Store({
 		resetChoices: (state) => {
 			// empty by .splice
 			state.actualChoices.splice(0, state.actualChoices.length);
-		}
+		},
 
-	
+		addCallToActions: (state, cta) => {
+			state.actualCallToActions.push(cta);
+		},
 
-	},
-
-	actions: {
-
-		// resetChoices: (context) =>  {
-		// 	context.commit('resetChoices');
-		// }
+		resetCallToActions: (state) => {
+			// empty by .splice
+			state.actualCallToActions.splice(0, state.actualCallToActions.length);
+		},
 
 	}
 

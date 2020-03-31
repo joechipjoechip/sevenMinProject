@@ -30,29 +30,22 @@ export default {
       ComponentOneChoice
     },
 
-	computed: {
-		
-		// updateChoices() {
-		// 	this.choices = this.$store.state.actualChoices;
-		// }
-
-	},
-
 	created() {
 		// 
 	},
 
 	mounted() {
 
-		// console.log('- - - - -depuis le choice manager : mounted : ', this.$store.state.actualChoices);
+		// de base, les choices sont : 
 		this.choices = this.$store.state.actualChoices;
 
 	},
 
 	updated() {
 
-		console.log('- - - - -depuis le choice manager : updated : ', this.$store.state.actualChoices);
+		// à chaque fois que le $store.state.actualChoices est touché : 
 		this.choices = this.$store.state.actualChoices;
+		// console.log('component choice manager : updated : ', this.choices);
 
 
 	},

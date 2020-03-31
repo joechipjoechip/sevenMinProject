@@ -44,8 +44,11 @@ export default {
 
                 callToAction: [
 					{ 
+						id: 1,	
                         type: "clickOnMana",
-                        timeCode: 2
+						timeCode: 1.5,
+						text: "CALL TO ACTION MANA",
+						media: "mana.png"
 					}
                 ],
 

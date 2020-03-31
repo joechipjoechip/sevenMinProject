@@ -4,13 +4,11 @@
 
   <div class="scene-container">
 
-        <ComponentVideo v-on:activateChoice="activateButton" />
+        <ComponentVideo/>
 
         <ComponentChoiceManager />
-        <ComponentHud />
+        <ComponentCallToAction v-on:playAfterCta="playAfterCta" />
 
-        <div v-on:click="supposedToAddMana(44)">test addMana</div>
-        <div v-on:click="supposedToRemoveMana(10)">test Remove Mana</div>
             
   </div>
 
@@ -23,6 +21,7 @@
 
 	import ComponentVideo from '@/components/ComponentVideo';
     import ComponentChoiceManager from '@/components/ComponentChoiceManager';
+    import ComponentCallToAction from '@/components/ComponentCallToAction';
     import ComponentHud from '@/components/ComponentHud';
 
 	export default {
@@ -30,44 +29,37 @@
         name: "Scene",
 
 		components: {
-            ComponentVideo, ComponentChoiceManager, ComponentHud
+            ComponentVideo, ComponentChoiceManager, ComponentCallToAction, ComponentHud
         },
 
         methods: { 
 
-            choicesManager() {
+            playAfterCta( event ) {
 
-            },
+                console.log("on a bien recu l event de play after cta ", event);
+                this.videoPlayer.play();
+                // ici on déléte 
+            }
 
-            activateButton( infos ) {
+            // supposedToAddMana(x) {
 
-                this.$store.commit('addChoice', infos);
+            //     console.log(' le state.mana avant le commit : ', this.$store.state.mana);
 
-            },
+            //     this.$store.commit('addMana', x);
 
-            // addMana(infos) {
-            //     console.log("fabfabfab");
+            //     console.log(' le state.mana après le commit : ', this.$store.state.mana);
+                
             // },
 
-            supposedToAddMana(x) {
+            // supposedToRemoveMana(x) {
 
-                console.log(' le state.mana avant le commit : ', this.$store.state.mana);
+            //     console.log('le mana avant remove : ', this.$store.state.mana);
 
-                this.$store.commit('addMana', x);
+            //     this.$store.commit('removeMana', x);
 
-                console.log(' le state.mana après le commit : ', this.$store.state.mana);
-                
-            },
+            //     console.log('le mana aprés remove : ', this.$store.state.mana);
 
-            supposedToRemoveMana(x) {
-
-                console.log('le mana avant remove : ', this.$store.state.mana);
-
-                this.$store.commit('removeMana', x);
-
-                console.log('le mana aprés remove : ', this.$store.state.mana);
-
-            }
+            // }
 
         },
 
@@ -76,7 +68,8 @@
             // update this.route
             this.route = this.$route.params.videoId;
 
-            this.choices = this.$store.state.storyMap.videos[this.route].components.choices;
+            // on se fait un handler du videoPlayer en local de ce component scene
+            this.videoPlayer = this.$children.filter( child => child.$options._componentTag === "ComponentVideo")[0].$el;
 
         },
 
@@ -84,7 +77,7 @@
 
         data() {
             return {
-                //
+                // 
             }
         }
 

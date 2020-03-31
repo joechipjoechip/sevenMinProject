@@ -30,8 +30,15 @@ export default {
 
 	methods: {
 
+		playAfterCta( event ) {
+
+			console.log('wesh le play a distance, ', event);
+			this.$el.play();
+			this.$store.commit('resetCallToActions');
+		},
+
 		onDurationChange(event) {
-			console.log('yeet' , event);
+			// console.log('yeet' , event);
 		},
 
 		onStart() {
@@ -48,6 +55,8 @@ export default {
 
 			this.compareTimeCodes();
 
+			this.checkCallToAction();
+
 		},
 
 		onPlaying() {
@@ -57,6 +66,32 @@ export default {
 
 		onPause() {
 			console.log('pause triggered');
+		},	
+		
+		checkCallToAction() {
+
+			this.callToActions.forEach( oneCallToAction => {
+
+				if( this.currentTime >= oneCallToAction.timeCode ) {
+
+					if ( !this.alreadySentCta[oneCallToAction.id] ) {
+
+						this.$el.pause();
+						
+						console.log('store cta by comitting : ', this.$store.state.actualCallToActions);
+
+						// mettre le call to action dans le store
+						this.$store.commit('addCallToActions', oneCallToAction);
+	
+
+						this.alreadySentCta[oneCallToAction.id] = true;
+
+					}
+
+				}
+
+			});
+		
 		},
 
 		checkStartingVideo() {
@@ -70,6 +105,7 @@ export default {
 					this.$store.commit('resetChoices');
 
 					this.alreadySentChoice = {};
+					this.alreadySentCta = {};
 					// console.log("actualChoices après : ", this.$store.state.actualChoices.length);
 					
 				}
@@ -88,9 +124,9 @@ export default {
 			
 					if ( !this.alreadySentChoice[oneChoice.id] ) {
 
-						this.$emit('activateChoice', oneChoice);
+						this.$store.commit('addChoice', oneChoice);
 
-						this.alreadySentChoice[oneChoice.id] = true;
+						this.alreadySentChoice[oneChoice.id] = true
 						
 					}
 
@@ -108,6 +144,7 @@ export default {
 	mounted() {
 
 		this.alreadySentChoice = {};
+		this.alreadySentCta = {};
 
 		this.route = this.$route.params.videoId;
 
@@ -122,6 +159,8 @@ export default {
 			}
 
 		});
+
+		this.callToActions = this.$store.state.storyMap.videos[this.route].components.callToAction;
 
 	},
 
