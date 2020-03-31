@@ -4,7 +4,7 @@
 <template>
 
 	<div>
-		<a href="#"></a>
+		<a :href="choiceInfos.route">{{choiceInfos.text}}</a>
 	</div>
 	
 </template>
@@ -18,9 +18,7 @@ export default {
 
 	name: "ComponentOneChoice",
 
-	props: {
-		// infos: Object
-	},
+	props: ["choiceInfos"],
 
 	methods: {
 	},

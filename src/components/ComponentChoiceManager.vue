@@ -6,10 +6,8 @@
     <div>
 
         <div v-for="choice in choices" :key="choice.id">
-  		
-			<!-- <ComponentOnechoice hey="{{choice.text}}" /> -->
-				<a :href="choice.route">{{choice.text}}</a>
-			<!-- </ComponentOneChoice> -->
+
+			<ComponentOneChoice :choiceInfos="choice" />
 	
 		</div>
 

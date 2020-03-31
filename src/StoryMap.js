@@ -8,7 +8,9 @@ export default {
 
                 url: "1_salon.mp4",
                 controls: true,
-                options: {}
+                options: {
+
+                }
  
             },
 
@@ -38,6 +40,13 @@ export default {
                         choiceTimeCode: 2
                     }
 
+                ],
+
+                callToAction: [
+					{ 
+                        type: "clickOnMana",
+                        timeCode: 2
+					}
                 ],
 
                 relances: [
