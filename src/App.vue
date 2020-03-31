@@ -2,8 +2,11 @@
 <!-- ° ° ° ° ° ° ° ° ° G L O B A L  L A Y O U T ° ° ° ° ° ° ° ° ° -->
 
 <template>
+
   <div id="app" :data-route="routeName">
+
     <div id="nav">
+
       <router-link :to="{ name: 'home' }">Home</router-link>
  
     </div>
@@ -20,6 +23,7 @@
     </transition>
 
   </div>
+
 </template>
 
 <!-- ° ° ° ° ° ° ° ° ° L O G I C ° ° ° ° ° ° ° ° ° -->
@@ -34,14 +38,7 @@ export default {
 
   methods: {
     pageEnter,
-    pageLeave,
-    coucou: function() {
-      console.log("cici");
-
-      console.log(this);
-
-      // debugger;
-    }
+    pageLeave
   },
 
   data: function() {
@@ -58,17 +55,15 @@ export default {
   },
 
   mounted() {
-    // Events.$on("change_bg", this.changeBg);
-
-    // console.log('"this" from App.vue/mounted -> ', this);
-
-    // console.log("here is the mounted()");
+    // 
   },
 
   beforeDestroy() {
-    // Events.$off("change_bg", this.changeBg);
+    // 
   }
+
 };
+
 </script>
 
 <!-- ° ° ° ° ° ° ° ° ° S T Y L E ° ° ° ° ° ° ° ° ° -->

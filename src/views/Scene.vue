@@ -7,9 +7,9 @@
         <ComponentVideo/>
 
         <ComponentChoiceManager />
-        <ComponentCallToAction v-on:playAfterCta="playAfterCta" />
 
-            
+        <ComponentCallToAction v-on:playAfterCta="playAfterCta" />
+ 
   </div>
 
 </template>
@@ -41,26 +41,6 @@
                 // ici on déléte 
             }
 
-            // supposedToAddMana(x) {
-
-            //     console.log(' le state.mana avant le commit : ', this.$store.state.mana);
-
-            //     this.$store.commit('addMana', x);
-
-            //     console.log(' le state.mana après le commit : ', this.$store.state.mana);
-                
-            // },
-
-            // supposedToRemoveMana(x) {
-
-            //     console.log('le mana avant remove : ', this.$store.state.mana);
-
-            //     this.$store.commit('removeMana', x);
-
-            //     console.log('le mana aprés remove : ', this.$store.state.mana);
-
-            // }
-
         },
 
 		mounted() {
@@ -68,12 +48,10 @@
             // update this.route
             this.route = this.$route.params.videoId;
 
-            // on se fait un handler du videoPlayer en local de ce component scene
+            // on se fait un handler du videoPlayer en local
             this.videoPlayer = this.$children.filter( child => child.$options._componentTag === "ComponentVideo")[0].$el;
 
         },
-
-        
 
         data() {
             return {

@@ -1,3 +1,10 @@
+<!-- Principe : -->
+<!-- Ce component fait beaucoup de choses : -->
+<!-- _ il surveille le currentTime de la video pour déclencher des vérifications selon celui-ci -->
+<!-- __ quand il doit déclencher des choses, c'est souvent : -->
+<!-- ___ mettre à jour le $store.state (les "actualChoices actualCallToActions" etc..) -->
+<!-- ___ parfois des .play() ou des .pause() ou des $store.$emit() selon les spécificités des différents éléments d'intéractions -->
+
 <!-- ° ° ° ° ° ° ° ° ° T E M P L A T E ° ° ° ° ° ° ° ° ° -->
 <!-- ° ° ° ° ° ° ° ° ° T E M P L A T E ° ° ° ° ° ° ° ° ° -->
 
@@ -30,12 +37,6 @@ export default {
 
 	methods: {
 
-		playAfterCta( event ) {
-
-			console.log('wesh le play a distance, ', event);
-			this.$el.play();
-		},
-
 		onDurationChange() {
 			// console.log('yeet' , event);
 		},
@@ -66,25 +67,37 @@ export default {
 		onPause() {
 			console.log('pause triggered');
 		},	
+
+		playAfterCta( event ) {
+
+			console.log('wesh le play a distance, ', event);
+			this.$el.play();
+			
+		},
 		
 		checkCallToAction() {
 
+			// si cette scene a des callToAction
 			if (this.callToActions) {
 
+				// on itère
 				this.callToActions.forEach( oneCallToAction => {
 	
+					// dès qu'un calltoaction doit être déclenché
 					if( this.currentTime >= oneCallToAction.timeCode ) {
 	
+						// si celui ci n'a pas déjà été déclenché
 						if ( !this.alreadySentCta[oneCallToAction.id] ) {
 	
+							// on pause la video
 							this.$el.pause();
 							
-							console.log('store cta by comitting : ', this.$store.state.actualCallToActions);
+							// console.log('store cta by comitting : ', this.$store.state.actualCallToActions);
 	
-							// mettre le call to action dans le store
+							// on met le calltoaction dans le store.actualCallToAction[]
 							this.$store.commit('addCallToActions', oneCallToAction);
-		
 	
+							// on stock l'id de ce calltoaction comme ayant été déjà déclenché (pour ne le faire qu'une fois)
 							this.alreadySentCta[oneCallToAction.id] = true;
 	
 						}

@@ -121,19 +121,19 @@ export default {
                         id: "ordinateur",
                         text: "Chercher sur l'ordinateur",
                         route: "ordinateur",
-                        choiceTimeCode: 150
+                        choiceTimeCode: 35
                     },
                     {
                         id: "tradeur",
                         text: "Appeler le mec du trading",
                         route: "tradeur",
-                        choiceTimeCode: 290
+                        choiceTimeCode: 35
                     },
                     {
                         id: "weed",
                         text: "Fumer le bon de campagne",
                         route: "weed",
-                        choiceTimeCode: 300
+                        choiceTimeCode: 35
                     }
                 ],
 
