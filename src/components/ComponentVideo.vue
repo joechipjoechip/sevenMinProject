@@ -34,7 +34,6 @@ export default {
 
 			console.log('wesh le play a distance, ', event);
 			this.$el.play();
-			this.$store.commit('resetCallToActions');
 		},
 
 		onDurationChange(event) {
