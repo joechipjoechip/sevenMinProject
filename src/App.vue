@@ -15,9 +15,9 @@
       appear
       name="transitionRouter"
       mode="out-in"
-      v-on:enter="pageEnter"
-      v-on:leave="pageLeave"
     >
+      <!-- v-on:enter="pageEnter"
+      v-on:leave="pageLeave" -->
       <router-view />
 
     </transition>

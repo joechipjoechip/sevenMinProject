@@ -68,18 +68,8 @@ const timedGoNext = function(destination, delay) {
 
 };
 
-const ctaEnter = function() {
-    
-}
-
-const ctaLeave = function() {
-
-}
-
 
 export { 
     lettersRoll,
-    timedGoNext,
-    ctaEnter,
-    ctaLeave
+    timedGoNext
 }

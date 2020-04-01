@@ -9,17 +9,22 @@
 
 <template>
 
-	<div>
+	<div class="ctas-container" :class="{ active: this.$store.state.actualCallToActions.length !== 0 }">
 
-		<div v-for="cta in ctas" :key="cta.id">
+		<div 
+			v-for="cta in ctas" 
+			:key="cta.id" 
+			:class="cta.classes" 
+			@click="ctaClick(cta, $event)"
+		>
 
-			<div v-if="cta" :class="cta.classes" v-on:click="ctaClick(cta)">
+			<p v-if="cta.text">
 
-				<p v-if="cta.text">{{cta.text}}</p>
+				{{cta.text}}
 
-				<img v-if="cta.media" :src="imagePath + cta.media" />
-				
-			</div>
+			</p>
+
+			<img v-if="cta.media" :src="imagePath + cta.media" />
 
 		</div>
 
@@ -32,35 +37,27 @@
 
 <script>
 
+import { TimelineLite } from "gsap/TweenMax";
+
 export default {
 
 	name: "ComponentCallToAction",
 
 	methods: {
 
-		playManaSound(sound) {
-			
-			if(sound){
-
-				let audio = new Audio(sound);
-
-				audio.play();
-
-			}
-			
-		},
-
 		// methodes des actions reçu (mana, arme, etc...)
-		ctaClick( cta ) {
+		ctaClick( cta, event ) {
 
-			//console.log('cta : ', cta);
+			let target = event.currentTarget;
 
 			switch (cta.type) {
 
 				case 'clickOnMana':
-				
-					this.playManaSound(cta.path);
 					
+					this.bounceOnClick(target);
+
+					this.playManaSound(cta.path);
+
 					// on met à jour le $store.state.mana
 					this.$store.commit('addMana', 12);
 		
@@ -74,7 +71,34 @@ export default {
 
 		},
 
+		bounceOnClick( target ) {
+
+			if ( target ) {
+				
+				target.classList.add('clickActive');
+
+				setTimeout(() => {
+
+					target.classList.remove('clickActive');
+
+				}, 100);
+
+			}
+
+		},
+
 	
+		playManaSound(sound) {
+			
+			if(sound){
+
+				let audio = new Audio(sound);
+
+				audio.play();
+
+			}
+			
+		},
 
 		checkManaAmount() {
 
@@ -98,8 +122,8 @@ export default {
 
 	},
 
-	updated() {
-		// this.ctas = this.$store.state.actualCallToActions;
+	beforeUpdate() {
+
 	},
 
 	mounted() {
@@ -121,12 +145,64 @@ export default {
 
 <style scoped lang="scss">
 
-	.potion_mana {
-		width: 150px;
 
-		img {
-			width: 100%;
+	.ctas-container {
+
+		--animDurationSlow: 1s;
+		--animDurationQuick: .3s;
+
+		height: 100%;
+		width: 0%;
+
+		transition: width 2s;
+
+		> * {
+
+			position: relative;
+			bottom: 0;
+			opacity: 1;
+			transform: scale(1);
+
+			transition: 
+				opacity var(--animDurationQuick),
+				bottom var(--animDurationQuick),
+				transform var(--animDurationQuick);
+
+			&.clickActive {
+
+				transform: scale(1.9);
+				bottom: 45px;
+				opacity: 0.5;
+
+			}
+
 		}
+
+		img,
+		.potion_mana {
+
+			width: 0%;
+			transition: width --animDurationSlow;
+
+		}
+
+		&.active {
+
+			width: 250px;
+
+			img {
+				width: 100%;
+			}
+
+
+			.potion_mana {
+
+				width: 100%;
+
+			}
+
+		}
+
 	}
 
 </style>

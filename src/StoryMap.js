@@ -47,7 +47,7 @@ export default {
 						id: 1,	
                         type: "clickOnMana",
 						timeCode: 1.5,
-						text: "CALL TO ACTION MANA",
+						// text: "CALL TO ACTION MANA",
                         media: "mana.png",
                         classes: "potion_mana",
                         path: "/assets/mp3/potion_mana.mp3"

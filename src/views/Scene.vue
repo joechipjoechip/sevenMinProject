@@ -6,19 +6,9 @@
 
         <div class="video_and_cta">
 
-            <ComponentVideo/>
+            <ComponentVideo />
 
-            <transition
-            appear
-            name="transitionRouter"
-            mode="out-in"
-            v-on:enter="ctaEnter"
-            v-on:leave="ctaLeave"
-            >
-
-                <ComponentCallToAction v-on:playAfterCta="playAfterCta" />
-
-            </transition>
+            <ComponentCallToAction v-on:playAfterCta="playAfterCta" />
 
         </div>
  
@@ -32,8 +22,6 @@
 <!-- ° ° ° ° ° ° ° ° ° L O G I C ° ° ° ° ° ° ° ° ° -->
 <script>
 
-	import { ctaEnter, ctaLeave } from '@/ComponentsMethods';
-
 	import ComponentVideo from '@/components/ComponentVideo';
     import ComponentChoiceManager from '@/components/ComponentChoiceManager';
     import ComponentCallToAction from '@/components/ComponentCallToAction';
@@ -44,13 +32,10 @@
         name: "Scene",
 
 		components: {
-            ComponentVideo, ComponentChoiceManager, ComponentCallToAction, ComponentHud, ctaEnter, ctaLeave
+            ComponentVideo, ComponentChoiceManager, ComponentCallToAction, ComponentHud
         },
 
         methods: {
-
-            ctaEnter,
-            ctaLeave,
 
             playAfterCta( event ) {
 
@@ -90,18 +75,16 @@
 
         border: solid 1px orange;
 
-        .video_and_cta {
-            width: 100%;
-            height: 100%;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-
-
-        }
-
     }
-    
+
+    .video_and_cta {
+
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 </style>

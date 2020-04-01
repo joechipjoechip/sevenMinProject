@@ -12,6 +12,7 @@
 
 	<video 
 		class="video-player"
+		:class="{ cohabitationCta: this.$store.state.actualCallToActions.length !== 0 }"
 		:src="videoUrl"
 		controls 
 		autoplay
@@ -195,9 +196,16 @@ export default {
 
 <style scoped lang="scss">
 
-    .video-player {
-        width: 100%;
-        border: solid 2px red;
-    }
+	.video-player {
+
+		width: 100%;
+
+		transition: width .7s;
+
+		&.cohabitationCta {
+			width: 80%;
+		}
+
+	}
 
 </style>
