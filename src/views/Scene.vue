@@ -72,9 +72,6 @@
         width: 70%;
         margin: 0 auto;
         display: block;
-
-        border: solid 1px orange;
-
     }
 
     .video_and_cta {

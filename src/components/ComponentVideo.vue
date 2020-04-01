@@ -204,6 +204,7 @@ export default {
 
 		&.cohabitationCta {
 			width: 80%;
+			margin-right: 50px;
 		}
 
 	}
