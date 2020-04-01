@@ -48,7 +48,8 @@ export default {
                         type: "clickOnMana",
 						timeCode: 1.5,
 						text: "CALL TO ACTION MANA",
-						media: "mana.png"
+                        media: "mana.png",
+                        classes: "potion_mana"
 					}
                 ],
 

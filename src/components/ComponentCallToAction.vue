@@ -13,7 +13,7 @@
 
 		<div v-for="cta in ctas" :key="cta.id">
 
-			<div v-if="cta" v-on:click="manaClick">
+			<div v-if="cta" :class="cta.classes" v-on:click="ctaClick(cta.type)">
 
 				<p v-if="cta.text">{{cta.text}}</p>
 
@@ -39,13 +39,24 @@ export default {
 	methods: {
 
 		// methodes des actions reçu (mana, arme, etc...)
-		manaClick() {
+		ctaClick( ctaType ) {
 
-			// on met à jour le $store.state.mana
-			this.$store.commit('addMana', 12);
+			console.log('ctaType : ', ctaType);
 
-			// on check si le mana est suffisant
-			this.checkManaAmount();
+			switch (ctaType) {
+
+				case 'clickOnMana':
+					
+					// on met à jour le $store.state.mana
+					this.$store.commit('addMana', 12);
+		
+					// on check si le mana est suffisant
+					this.checkManaAmount();
+
+				break;
+
+			}
+
 
 		},
 
@@ -94,5 +105,12 @@ export default {
 
 <style scoped lang="scss">
 
+	.potion_mana {
+		width: 150px;
+
+		img {
+			width: 100%;
+		}
+	}
 
 </style>

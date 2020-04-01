@@ -19,7 +19,7 @@ const lettersRoll = function(component) {
         // on découpe le texte
         const texteArr = texte.split('');
 
-        // on enveloppe chaque lettre d'un span.oneLetter
+       // on enveloppe chaque lettre d'un span.oneLetter
         element.innerHTML = texteArr.map(lettre => {
 
             let lettreOk = lettre;
