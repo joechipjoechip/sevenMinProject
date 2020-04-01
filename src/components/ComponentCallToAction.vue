@@ -15,7 +15,8 @@
 	>
 
 		<div 
-			v-for="cta in ctas" 
+			v-for="cta in ctas"
+			:key="cta.id"
 			:class="cta.classes" 
 			@click="ctaClick(cta, $event)"
 		>
