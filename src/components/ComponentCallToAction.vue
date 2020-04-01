@@ -9,7 +9,10 @@
 
 <template>
 
-	<div class="ctas-container" :class="{ active: this.$store.state.actualCallToActions.length !== 0 }">
+	<div 
+		class="ctas-container" 
+		:class="{ active: this.$store.state.actualCallToActions.length !== 0 }"
+	>
 
 		<div 
 			v-for="cta in ctas" 
