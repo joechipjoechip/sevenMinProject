@@ -94,5 +94,7 @@ export default {
 
 <style scoped lang="scss">
 
-
+.mana_potion {
+	width: 200px;
+}
 </style>
