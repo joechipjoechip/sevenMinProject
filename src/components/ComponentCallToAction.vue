@@ -16,7 +16,6 @@
 
 		<div 
 			v-for="cta in ctas" 
-			:key="cta.id" 
 			:class="cta.classes" 
 			@click="ctaClick(cta, $event)"
 		>
@@ -90,10 +89,9 @@ export default {
 
 		},
 
-	
 		playManaSound(sound) {
 			
-			if(sound){
+			if ( sound ) {
 
 				let audio = new Audio(sound);
 
@@ -107,6 +105,9 @@ export default {
 
 			// quand le mana est suffisant
 			if (this.$store.state.mana > 150) {
+
+				// on rerend le player interactif :
+				this.$store.commit('setPlayerInteractive', true);
 
 				// on refait play de la vidéo qui avait été .pause() dans le ComponentVideo ( lors du remplissage de $store.state.actualCallToActions[] )
 				// grâce à un event qui est écouté par un v-on sur l'instanciation du ComponentCallToAction dans la Scene.vue

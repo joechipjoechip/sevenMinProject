@@ -12,7 +12,10 @@
 
 	<video 
 		class="video-player"
-		:class="{ cohabitationCta: this.$store.state.actualCallToActions.length !== 0 }"
+		:class="{ 
+			cohabitationCta: this.$store.state.actualCallToActions.length !== 0,
+			isInteractive: this.$store.state.playerIsInteractive
+		}"
 		:src="videoUrl"
 		controls 
 		autoplay
@@ -92,8 +95,9 @@ export default {
 	
 							// on pause la video
 							this.$el.pause();
-							
-							// console.log('store cta by comitting : ', this.$store.state.actualCallToActions);
+
+							// on désactive l'interaction du player
+							this.$store.commit('setPlayerInteractive', false);
 	
 							// on met le calltoaction dans le store.actualCallToAction[]
 							this.$store.commit('addCallToActions', oneCallToAction);
@@ -183,7 +187,8 @@ export default {
 
 	data() {
 		return {
-			videoUrl: `/assets/videos/${this.$store.state.storyMap.videos[this.$route.params.videoId].self.url}`
+			videoUrl: `/assets/videos/${this.$store.state.storyMap.videos[this.$route.params.videoId].self.url}`,
+			isPaused: this.isPaused
 		}
 	}
 
@@ -200,11 +205,23 @@ export default {
 
 		width: 100%;
 
-		transition: width .7s;
+		// de base, le player n'est pas interactif
+		pointer-events: none;
+		border: solid 15px red;
+
+
+		transition:
+			border .7s,
+			width .7s;
 
 		&.cohabitationCta {
 			width: 80%;
 			margin-right: 50px;
+		}
+
+		&.isInteractive {
+			pointer-events: initial;
+			border: solid 15px green;
 		}
 
 	}

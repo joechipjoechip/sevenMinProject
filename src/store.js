@@ -18,7 +18,8 @@ export default new Vuex.Store({
 		actualChoices: [],
 		actualCallToActions: [],
 		mana: 100,
-		vie: 100
+		vie: 100,
+		playerIsInteractive: true
 	},
 
 	mutations: {
@@ -48,6 +49,10 @@ export default new Vuex.Store({
 			// empty by .splice
 			state.actualCallToActions.splice(0, state.actualCallToActions.length);
 		},
+
+		setPlayerInteractive(state, bool) {
+			state.playerIsInteractive = bool;
+		}
 
 	}
 
