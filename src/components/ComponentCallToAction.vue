@@ -13,7 +13,7 @@
 
 		<div v-for="cta in ctas" :key="cta.id">
 
-			<div v-if="cta" :class="cta.classes" v-on:click="ctaClick(cta.type)">
+			<div v-if="cta" :class="cta.classes" v-on:click="ctaClick(cta)">
 
 				<p v-if="cta.text">{{cta.text}}</p>
 
@@ -38,14 +38,28 @@ export default {
 
 	methods: {
 
+		playManaSound(sound) {
+			
+			if(sound){
+
+				let audio = new Audio(sound);
+
+				audio.play();
+
+			}
+			
+		},
+
 		// methodes des actions reçu (mana, arme, etc...)
-		ctaClick( ctaType ) {
+		ctaClick( cta ) {
 
-			console.log('ctaType : ', ctaType);
+			//console.log('cta : ', cta);
 
-			switch (ctaType) {
+			switch (cta.type) {
 
 				case 'clickOnMana':
+				
+					this.playManaSound(cta.path);
 					
 					// on met à jour le $store.state.mana
 					this.$store.commit('addMana', 12);
@@ -59,6 +73,8 @@ export default {
 
 
 		},
+
+	
 
 		checkManaAmount() {
 
