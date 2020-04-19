@@ -3,7 +3,6 @@
 <!-- ce qqch génère automatiquement l'apparition du template ci-dessous -->
 <!-- ce qqch étant un array, on itère (v-for) sur celui-ci pour afficher tous les éléments qui le composent -->
 
-
 <!-- ° ° ° ° ° ° ° ° ° T E M P L A T E ° ° ° ° ° ° ° ° ° -->
 <!-- ° ° ° ° ° ° ° ° ° T E M P L A T E ° ° ° ° ° ° ° ° ° -->
 
