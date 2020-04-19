@@ -1,4 +1,5 @@
 # seven-min-project
+node version : 10.15.3
 
 ## Project setup
 ```
